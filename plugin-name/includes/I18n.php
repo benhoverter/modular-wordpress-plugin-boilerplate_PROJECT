@@ -43,5 +43,4 @@ class Plugin_Abbr_i18n {
 	}
 
 
-
 }

@@ -81,5 +81,3 @@ class Plugin_Abbr_Queries {
     );
 
 }
-
-?>

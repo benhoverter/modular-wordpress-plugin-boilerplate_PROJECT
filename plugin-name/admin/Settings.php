@@ -343,5 +343,3 @@ class Plugin_Abbr_Settings {
     }
 
 }
-
-?>

@@ -109,10 +109,11 @@ class Plugin_Name {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Plugin_Abbr_Loader. Orchestrates the hooks of the plugin.
-	 * - Plugin_Abbr_i18n. Defines internationalization functionality.
-	 * - Plugin_Abbr_Admin. Defines all hooks for the admin area.
-	 * - Plugin_Abbr_Public. Defines all hooks for the public side of the site.
+	 * - Loader.php. Orchestrates the hooks of the plugin.
+	 * - I18n.php. Defines internationalization functionality.
+	 * - Admin.php. Defines all hooks for the admin area.
+	 * - Settings.php.  Defines the WeDevs Settings API integration.
+     * - Public.php. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -191,8 +192,8 @@ class Plugin_Name {
         // No need to enqueue scripts/styles here -- they are enqueued in the WeDevs_Settings_API class.
 
         // Standard functions that call dev-defined sections and menus in the Settings class:
-        $this->loader->add_action( 'admin_menu', $plugin_settings, 'admin_menu' );
-        $this->loader->add_action( 'admin_init', $plugin_settings, 'admin_init' );
+        //$this->loader->add_action( 'admin_menu', $plugin_settings, 'admin_menu' );
+        //$this->loader->add_action( 'admin_init', $plugin_settings, 'admin_init' );
 
     }
 
@@ -206,10 +207,10 @@ class Plugin_Name {
 	 */
 	private function define_admin_hooks() {
 
-    $plugin_admin = new Plugin_Abbr_Admin( $this->get_plugin_name(), $this->get_version() /* , $this->set_db_connection(), $this->get_queries() */ );
+        $plugin_admin = new Plugin_Abbr_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		//$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+		//$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
         // Standard admin element hooks go here:
         //$this->loader->add_action( 'add_meta_boxes{_post_type}', $plugin_admin->element, 'render_metabox' );
@@ -231,10 +232,10 @@ class Plugin_Name {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Plugin_Abbr_Public( $this->get_plugin_name(), $this->get_version() /* , $this->set_db_connection(), $this->get_queries() */ );
+		$plugin_public = new Plugin_Abbr_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		//$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+		//$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
         // Standard public element hooks go here:
         //$this->loader->add_action( 'hook_name', $plugin_public->element, 'render_view' );
