@@ -112,12 +112,12 @@ class Plugin_Abbr_Public {
         /**
          * The element responsible for ________.
          */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'element/Element.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/element/Element.php';
 
         /**
         * The AJAX element responsible for ________.
          */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'element-ajax/Element-Ajax.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/element-ajax/Element-Ajax.php';
 
     }
 

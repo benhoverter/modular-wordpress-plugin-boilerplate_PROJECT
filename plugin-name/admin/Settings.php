@@ -72,7 +72,7 @@ class Plugin_Abbr_Settings {
 
 		$this->version = $version;
 
-        require_once plugin_dir_path( __FILE__ ) . 'partials/Settings-API.php';
+        require_once plugin_dir_path( __FILE__ ) . 'settings-api/Settings-API.php';
 
         $this->settings_api = new WeDevs_Settings_API;
 

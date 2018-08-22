@@ -121,12 +121,12 @@ class Plugin_Abbr_Admin {
         /**
          * The element responsible for ________.
          */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'element/Element.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/element/Element.php';
 
         /**
         * The AJAX element responsible for ________.
          */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'element-ajax/Element-Ajax.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/element-ajax/Element-Ajax.php';
 
     }
 
