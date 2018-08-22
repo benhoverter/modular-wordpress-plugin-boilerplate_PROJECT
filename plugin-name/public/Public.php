@@ -167,7 +167,7 @@ class Plugin_Abbr_Public {
         * between the defined hooks and the functions defined in this
         * class.
         *
-        * This architecture assumes you are transpiling all child directory
+        * This architecture assumes that you are transpiling all child directory
         * JavaScript files into a single public.min.js file in the /public directory.
 		 */
 
