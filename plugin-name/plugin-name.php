@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://example.com
+ * @link              https://github.com/benhoverter/modular-wordpress-plugin-boilerplate
  * @since             1.0.0
- * @package           Plugin_Name
+ * @package           Modular_Plugin_Name
  *
  * @wordpress-plugin
  * Plugin Name:       A Modular WordPress Plugin Boilerplate
- * Plugin URI:        http://example.com/plugin-name-uri/
+ * Plugin URI:        https://github.com/benhoverter/modular-wordpress-plugin-boilerplate
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.0.0
  * Author:            Ben Hoverter
- * Author URI:        http://benhoverter.com/
+ * Author URI:        http://github.com/benhoverter
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       plugin-name
@@ -26,9 +26,11 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
+
+if ( !defined( 'WPINC' ) ) {
 	die;
 }
+
 
 /**
  * Currently plugin version.
@@ -79,4 +81,4 @@ function run_plugin_name() {
 	$plugin->run();
 
 }
-run_plugin_name();
+//run_plugin_name();
