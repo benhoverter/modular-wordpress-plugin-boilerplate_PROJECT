@@ -301,7 +301,14 @@ class Plugin_Name {
 	 */
 	public function set_db_connection() {
 
-        $this->conn = new mysqli( 'localhost', 'username', 'password', 'db_name' );
+        $config = new Plugin_Abbr_Config();
+
+        $this->conn = new mysqli(
+            $config->host,
+            $config->user,
+            $config->password,
+            $config->db_name
+        );
 
 		return $this->conn;
 	}
