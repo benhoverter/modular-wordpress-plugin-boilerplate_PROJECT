@@ -140,10 +140,10 @@ class Plugin_Abbr_Public {
 		 */
 
           // Variable to hold the URL path for enqueueing.
-          $public_css_dir_url = plugin_dir_url( __FILE__ ) . 'public.css';
+          $public_css_dir_url = plugin_dir_url( __DIR__ ) . 'dist/public/public.min.css';
 
           // Variable to hold the server path for filemtime() and versioning.
-          $public_css_dir_path = plugin_dir_path( __FILE__ ) . 'public.css';
+          $public_css_dir_path = plugin_dir_path( __DIR__ ) . 'dist/public/public.min.css';
 
           // Register the style using an automatic and unique version based on modification time.
           wp_register_style( $this->plugin_name, $public_css_dir_url, array(),  filemtime( $public_css_dir_path ), 'all' );
@@ -172,10 +172,10 @@ class Plugin_Abbr_Public {
 		 */
 
         // Variable to hold the URL path for enqueueing.
-        $public_js_dir_url = plugin_dir_url( __FILE__ ) . 'public.min.js';
+        $public_js_dir_url = plugin_dir_url( __DIR__ ) . 'dist/public/public.min.js';
 
         // Variable to hold the server path for filemtime() and versioning.
-        $public_js_dir_path = plugin_dir_path( __FILE__ ) . 'public.min.js';
+        $public_js_dir_path = plugin_dir_path( __DIR__ ) . 'dist/public/public.min.js';
 
         // Register the script using an automatic and unique version based on modification time.
         wp_register_script( $this->plugin_name, $public_js_dir_url, array( 'jquery' ),  filemtime( $public_js_dir_path ), true );

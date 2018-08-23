@@ -99,7 +99,7 @@ class Plugin_Name {
 		$this->set_locale();
 
         //$this->define_admin_hooks();  // Creates an instance of the admin class and hooks its methods in.
-        //$this->define_public_hooks(); // Creates an instance of the public class and hooks its methods in.
+        $this->define_public_hooks(); // Creates an instance of the public class and hooks its methods in.
         //$this->define_settings_hooks(); // Creates an instance of the admin settings class and hooks its methods in.
 
 	}
