@@ -2,8 +2,7 @@
 /node_modules
 
 # production
-*.min.css
-*.min.js
+*.min.*
 
 # misc
 .DS_Store
