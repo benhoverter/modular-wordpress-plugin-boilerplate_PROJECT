@@ -16,6 +16,8 @@ Author URI: http://benhoverter.com
 
         // Do stuff.
 
+        const tester = () => {19 + 5};
+
     });
 
 })( jQuery );

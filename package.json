@@ -1,0 +1,39 @@
+{
+  "name": "modular-wp-plugin-boilerplate",
+  "version": "1.0.0",
+  "description": "A WP plugin template with better separation of concerns",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benhoverter/modular-wordpress-plugin-boilerplate.git"
+  },
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "boilerplate"
+  ],
+  "author": "Ben Hoverter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benhoverter/modular-wordpress-plugin-boilerplate/issues"
+  },
+  "homepage": "https://github.com/benhoverter/modular-wordpress-plugin-boilerplate#readme",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-rc.2",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1",
+    "run-sequence": "^2.2.1"
+  }
+}
