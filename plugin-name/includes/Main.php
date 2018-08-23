@@ -98,9 +98,9 @@ class Plugin_Name {
 		$this->load_dependencies();
 		$this->set_locale();
 
-        $this->define_admin_hooks();  // Creates an instance of the admin class and hooks its methods in.
-        $this->define_public_hooks(); // Creates an instance of the public class and hooks its methods in.
-        $this->define_settings_hooks(); // Creates an instance of the admin settings class and hooks its methods in.
+        //$this->define_admin_hooks();  // Creates an instance of the admin class and hooks its methods in.
+        //$this->define_public_hooks(); // Creates an instance of the public class and hooks its methods in.
+        //$this->define_settings_hooks(); // Creates an instance of the admin settings class and hooks its methods in.
 
 	}
 
@@ -209,8 +209,8 @@ class Plugin_Name {
 
         $plugin_admin = new Plugin_Abbr_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		//$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		//$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
         // Standard admin element hooks go here:
         //$this->loader->add_action( 'add_meta_boxes{_post_type}', $plugin_admin->element, 'render_metabox' );
@@ -234,8 +234,8 @@ class Plugin_Name {
 
 		$plugin_public = new Plugin_Abbr_Public( $this->get_plugin_name(), $this->get_version() );
 
-		//$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		//$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
         // Standard public element hooks go here:
         //$this->loader->add_action( 'hook_name', $plugin_public->element, 'render_view' );

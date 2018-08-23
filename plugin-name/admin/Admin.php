@@ -148,18 +148,18 @@ class Plugin_Abbr_Admin {
          * css/scss/less files into a single admin.css file in the /admin directory.
 		 */
 
-          // Variable to hold the URL path for enqueueing.
-          $admin_css_url_path = plugin_dir_url( __FILE__ ) . 'admin.css';
+        // Variable to hold the URL path for enqueueing.
+        $admin_css_dir_url = plugin_dir_url( __DIR__ ) . 'dist/admin/admin.min.css';
 
-          // Variable to hold the server path for filemtime() and versioning.
-          $admin_css_dir_path = plugin_dir_path( __FILE__ ) . 'admin.css';
+        // Variable to hold the server path for filemtime() and versioning.
+        $admin_css_dir_path = plugin_dir_path( __DIR__ ) . 'dist/admin/admin.min.css';
 
-          // Register the style using an automatic and unique version based on modification time.
-          wp_register_style( $this->plugin_name, $admin_css_url_path , array() ,  filemtime( $admin_css_dir_path ) , 'all' );
+        // Register the style using an automatic and unique version based on modification time.
+        wp_register_style( $this->plugin_name, $admin_css_dir_url, array(), filemtime( $admin_css_dir_path ), 'all' );
 
-          // Enqueue the style.
-          wp_enqueue_style( $this->plugin_name );
-          //wp_enqueue_style( 'thickbox' );
+        // Enqueue the style.
+        wp_enqueue_style( $this->plugin_name );
+        //wp_enqueue_style( 'thickbox' );
 
 	}
 
@@ -181,13 +181,13 @@ class Plugin_Abbr_Admin {
 		 */
 
         // Variable to hold the URL path for enqueueing.
-        $admin_js_url_path = plugin_dir_url( __FILE__ ) . 'admin.min.js';
+        $admin_js_dir_url = plugin_dir_url( __DIR__ ) . 'dist/admin/admin.min.js';
 
         // Variable to hold the server path for filemtime() and versioning.
-        $admin_js_dir_path = plugin_dir_path( __FILE__ ) . 'admin.min.js';
+        $admin_js_dir_path = plugin_dir_path( __DIR__ ) . 'dist/admin/admin.min.js';
 
         // Register the script using an automatic and unique version based on modification time.
-        wp_register_script( $this->plugin_name, $admin_js_url_path , array( 'jquery' ) ,  filemtime( $admin_js_dir_path ) , true );
+        wp_register_script( $this->plugin_name, $admin_js_dir_url, array( 'jquery' ), filemtime( $admin_js_dir_path ), true );
 
         // Enqueue the scripts.
         wp_enqueue_script( $this->plugin_name );
