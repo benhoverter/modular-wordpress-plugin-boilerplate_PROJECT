@@ -98,9 +98,9 @@ class Plugin_Name {
 		$this->load_dependencies();
 		$this->set_locale();
 
-        //$this->define_admin_hooks();  // Creates an instance of the admin class and hooks its methods in.
+        $this->define_admin_hooks();  // Creates an instance of the admin class and hooks its methods in.
         $this->define_public_hooks(); // Creates an instance of the public class and hooks its methods in.
-        //$this->define_settings_hooks(); // Creates an instance of the admin settings class and hooks its methods in.
+        $this->define_settings_hooks(); // Creates an instance of the admin settings class and hooks its methods in.
 
 	}
 
@@ -192,8 +192,8 @@ class Plugin_Name {
         // No need to enqueue scripts/styles here -- they are enqueued in the WeDevs_Settings_API class.
 
         // Standard functions that call dev-defined sections and menus in the Settings class:
-        //$this->loader->add_action( 'admin_menu', $plugin_settings, 'admin_menu' );
-        //$this->loader->add_action( 'admin_init', $plugin_settings, 'admin_init' );
+        $this->loader->add_action( 'admin_menu', $plugin_settings, 'admin_menu' );
+        $this->loader->add_action( 'admin_init', $plugin_settings, 'admin_init' );
 
     }
 
