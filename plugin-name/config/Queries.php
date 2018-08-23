@@ -1,35 +1,35 @@
 <?php
 
 /**
- * This class stores the plugin SQL queries. It is not instanced.
- *
- * NOTE: IMPORTANT! THIS FILE SHOULD BE INCLUDED IN YOUR .gitignore FILE!
- *       Do not expose your SQL queries on your repository!
- *
- * @since      1.0.0
- *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/config
- */
+* This class stores the plugin SQL queries. It is not instanced.
+*
+* NOTE: IMPORTANT! THIS FILE SHOULD BE INCLUDED IN YOUR .gitignore FILE!
+*       Do not expose your SQL queries on your repository!
+*
+* @since      1.0.0
+*
+* @package    Plugin_Name
+* @subpackage Plugin_Name/config
+*/
 
 /**
- * This class stores the plugin SQL queries. It is not instanced.
- * *
- * @since      1.0.0
- * @package    Plugin_Name
- * @subpackage Plugin_Name/config
- * @author     Ben Hoverter <ben.hoverter@gmail.com>
- */
+* This class stores the plugin SQL queries. It is not instanced.
+* *
+* @since      1.0.0
+* @package    Plugin_Name
+* @subpackage Plugin_Name/config
+* @author     Ben Hoverter <ben.hoverter@gmail.com>
+*/
 class Plugin_Abbr_Queries {
 
-	/**
-	 * This method retrieves the plugin SQL queries. It is called directly.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function get_queries() {
+    /**
+    * This method retrieves the plugin SQL queries. It is called directly.
+    *
+    * @since    1.0.0
+    */
+    public static function get_queries() {
         return self::$queries;
-	}
+    }
 
 
     /**
