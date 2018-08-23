@@ -17,7 +17,7 @@ view/controller separation.  It also fails to take advantage of folder namespace
 
 This boilerplate keeps the admin/public division, but adds the WeDevs Settings API to separate admin functionality on posts and pages from the snarl that is the WP Settings API.  Within each of the public and admin divisions there are "elements" intended to be copied, renamed, and built to provide one specific function.  Each element has its own .scss, .js, and view folders and files.  Standard elements and AJAX-based element templates are provided, along with their placeholder action hooks.
 
-Because each element has its own .scss and .js, this boilerplate assumes the use of a transpiler like Babel for translation, concatenation, and minification.  Transpilation should be separated between public and admin; each folder contains a placeholder .css and .min.js file to indicate a target location for all children.
+Because each element has its own .scss and .js, this boilerplate assumes the use of a transpiler like Babel for translation, concatenation, and minification.  Transpilation should target the /dist folder and its /public and /admin children.  I haven't added separate /js and /css folders within those, as I feel the separation is already sufficient.
 
 
 == Installation ==
