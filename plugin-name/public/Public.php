@@ -72,9 +72,9 @@ class Plugin_Abbr_Public {
     *
     * @since    1.0.0
     * @access   private
-    * @var      string    $query_master_list    The associative array holding all SQL queries.
+    * @var      string    $queries    The associative array holding all SQL queries.
     */
-    private $query_master_list;
+    private $queries;
 
 
     /**
@@ -84,7 +84,7 @@ class Plugin_Abbr_Public {
     * @param      string    $plugin_name       The name of the plugin.
     * @param      string    $version    The version of this plugin.
     */
-public function __construct( $plugin_name, $version /*, $conn, $query_master_list */ ) {
+public function __construct( $plugin_name, $version /*, $conn, $queries */ ) {
 
     $this->plugin_name = $plugin_name;
     $this->version = $version;
@@ -94,7 +94,7 @@ public function __construct( $plugin_name, $version /*, $conn, $query_master_lis
 
     // For DB interactions:
     //$this->conn = $conn;
-    //$this->query_master_list = $query_master_list;
+    //$this->queries = $queries;
 
 }
 

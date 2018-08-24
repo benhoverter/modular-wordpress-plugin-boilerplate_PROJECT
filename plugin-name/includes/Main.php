@@ -322,9 +322,9 @@ class Plugin_Name {
     */
     public function get_queries() {
 
-        $this->query_master_list = Plugin_Abbr_Queries::get_queries();
+        $this->queries = Plugin_Abbr_Queries::get_queries();
 
-        return $this->query_master_list;
+        return $this->queries;
     }
 
 
