@@ -150,10 +150,10 @@ public function enqueue_styles() {
     */
 
     // Variable to hold the URL path for enqueueing.
-    $admin_css_dir_url = plugin_dir_url( __DIR__ ) . 'dist/admin/admin.min.css';
+    $admin_css_dir_url = plugin_dir_url( __DIR__ ) . 'assets/admin/admin.min.css';
 
     // Variable to hold the server path for filemtime() and versioning.
-    $admin_css_dir_path = plugin_dir_path( __DIR__ ) . 'dist/admin/admin.min.css';
+    $admin_css_dir_path = plugin_dir_path( __DIR__ ) . 'assets/admin/admin.min.css';
 
     // Register the style using an automatic and unique version based on modification time.
     wp_register_style( $this->plugin_name, $admin_css_dir_url, array(), filemtime( $admin_css_dir_path ), 'all' );
@@ -182,10 +182,10 @@ public function enqueue_scripts() {
     */
 
     // Variable to hold the URL path for enqueueing.
-    $admin_js_dir_url = plugin_dir_url( __DIR__ ) . 'dist/admin/admin.min.js';
+    $admin_js_dir_url = plugin_dir_url( __DIR__ ) . 'assets/admin/admin.min.js';
 
     // Variable to hold the server path for filemtime() and versioning.
-    $admin_js_dir_path = plugin_dir_path( __DIR__ ) . 'dist/admin/admin.min.js';
+    $admin_js_dir_path = plugin_dir_path( __DIR__ ) . 'assets/admin/admin.min.js';
 
     // Register the script using an automatic and unique version based on modification time.
     wp_register_script( $this->plugin_name, $admin_js_dir_url, array( 'jquery' ), filemtime( $admin_js_dir_path ), true );

@@ -1,4 +1,4 @@
-plugin-name<?php
+<?php
 
 /**
 * Register all actions and filters for the plugin

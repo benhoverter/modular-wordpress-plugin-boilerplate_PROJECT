@@ -1,5 +1,5 @@
 /**
- * JavaScript for Public AJAX Element
+ * JS for: public/element-ajax/view-name.php.
  *
  * @link       http://example.com
  * @since      1.0.0

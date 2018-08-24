@@ -1,5 +1,5 @@
 /**
- * JavaScript for Admin Element
+ * JS for: admin/element/view-name.php.
  *
  * @link       http://example.com
  * @since      1.0.0

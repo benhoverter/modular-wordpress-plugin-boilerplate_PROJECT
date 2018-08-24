@@ -41,7 +41,7 @@ gulp.task( 'default', () => {       // Do it all.
 
 // ***** PUBLIC CSS ***** //
 gulp.task( 'css-public-clean', () => {                      // Delete the old .css file.
-    return gulp.src( './plugin-name/dist/public/*.css', { read: false } )
+    return gulp.src( './plugin-name/assets/public/*.css', { read: false } )
         .pipe( clean() );
 } );
 
@@ -53,13 +53,13 @@ gulp.task( 'css-public', [ 'css-public-clean' ], () => {
         } ) )
         .pipe( concat( 'public.min.css' ) )                 // Combine all files into one.
         .pipe( csso() )                                     // Minify the CSS.
-        .pipe( gulp.dest( './plugin-name/dist/public' ) );  // Put the new file here.
+        .pipe( gulp.dest( './plugin-name/assets/public' ) );  // Put the new file here.
 } );
 
 
 // ***** PUBLIC JAVASCRIPT ***** //
 gulp.task( 'js-public-clean', () => {                       // Delete the old .js and .map files.
-    return gulp.src( './plugin-name/dist/public/*.js*', { read: false } )
+    return gulp.src( './plugin-name/assets/public/*.js*', { read: false } )
         .pipe( clean() );
 } );
 
@@ -72,7 +72,7 @@ gulp.task( 'js-public', [ 'js-public-clean' ], () => {
         } ) )
         .pipe( uglify() )                                   // Minify the JS.
         .pipe( sourcemaps.write( '.' ) )                    // Place the sourcemap next to public.min.js.
-        .pipe( gulp.dest( './plugin-name/dist/public' ) );
+        .pipe( gulp.dest( './plugin-name/assets/public' ) );
 
 } );
 
@@ -80,7 +80,7 @@ gulp.task( 'js-public', [ 'js-public-clean' ], () => {
 
 // ***** ADMIN CSS ***** //
 gulp.task( 'css-admin-clean', () => {                      // Delete the old .css file.
-    return gulp.src( './plugin-name/dist/admin/*.css', { read: false } )
+    return gulp.src( './plugin-name/assets/admin/*.css', { read: false } )
         .pipe( clean() );
 } );
 
@@ -92,13 +92,13 @@ gulp.task( 'css-admin', [ 'css-admin-clean' ], () => {
         } ) )
         .pipe( concat( 'admin.min.css' ) )                 // Combine all files into one.
         .pipe( csso() )                                     // Minify the CSS.
-        .pipe( gulp.dest( './plugin-name/dist/admin' ) );  // Put the new file here.
+        .pipe( gulp.dest( './plugin-name/assets/admin' ) );  // Put the new file here.
 } );
 
 
 // ***** ADMIN JAVASCRIPT ***** //
 gulp.task( 'js-admin-clean', () => {                       // Delete the old .js and .map files.
-    return gulp.src( './plugin-name/dist/admin/*.js*', { read: false } )
+    return gulp.src( './plugin-name/assets/admin/*.js*', { read: false } )
         .pipe( clean() );
 } );
 
@@ -111,6 +111,6 @@ gulp.task( 'js-admin', [ 'js-admin-clean' ], () => {
         } ) )
         .pipe( uglify() )                                   // Minify the JS.
         .pipe( sourcemaps.write( '.' ) )                    // Place the sourcemap next to admin.min.js.
-        .pipe( gulp.dest( './plugin-name/dist/admin' ) );
+        .pipe( gulp.dest( './plugin-name/assets/admin' ) );
 
 } );
