@@ -9,22 +9,22 @@
 * @link       https://github.com/benhoverter/modular-wordpress-plugin-boilerplate
 * @since      1.0.0
 *
-* @package    Plugin_Name
-* @subpackage Plugin_Name/includes
+* @package    plugin-name
+* @subpackage plugin-name/includes
 */
 
 /**
 * The core plugin class.
 *
-* This is used to define internationalization, admin-specific hooks, and
-* public-facing site hooks.
+* This is used to define internationalization, admin-specific hooks
+* settings page hooks, and public-facing site hooks.
 *
 * Also maintains the unique identifier of this plugin as well as the current
 * version of the plugin.
 *
 * @since      1.0.0
-* @package    Plugin_Name
-* @subpackage Plugin_Name/includes
+* @package    plugin-name
+* @subpackage plugin-name/includes
 * @author     Ben Hoverter <ben.hoverter@gmail.com>
 */
 class Plugin_Name {
@@ -64,7 +64,7 @@ class Plugin_Name {
     * @access   protected
     * @var      string    $conn    The mysqli database connection object instance.
     */
-    //public $conn;
+    public $conn;
 
     /**
     * The array of SQL queries that the plugin can run.
@@ -73,7 +73,7 @@ class Plugin_Name {
     * @access   protected
     * @var      string    $queries    The array of SQL queries that the plugin can run.
     */
-    //public $queries;
+    public $queries;
 
 
     /**
@@ -92,15 +92,14 @@ class Plugin_Name {
             $this->version = '1.0.0';
         }
 
-        // Capitalized on 1-26-2018.  Originally 'plugin-name'.  Settings API is agnostic; other classes?
         $this->plugin_name = 'Plugin Name';
 
         $this->load_dependencies();
         $this->set_locale();
 
-        $this->define_admin_hooks();  // Creates an instance of the admin class and hooks its methods in.
-        $this->define_public_hooks(); // Creates an instance of the public class and hooks its methods in.
-        $this->define_settings_hooks(); // Creates an instance of the admin settings class and hooks its methods in.
+        $this->define_admin_hooks();
+        $this->define_public_hooks();
+        $this->define_settings_hooks();
 
     }
 
@@ -152,9 +151,14 @@ class Plugin_Name {
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/Public.php';
 
         /**
-        * The file responsible for defining the SQL queries run by the plugin.
+        * The class responsible for defining the database configuration options.
         */
-        //require_once plugin_dir_path( dirname( __FILE__ ) ) . 'config/Queries.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'config/Config.php';
+
+        /**
+        * The class responsible for defining the SQL queries run by the plugin.
+        */
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'config/Queries.php';
 
         $this->loader = new Plugin_Abbr_Loader();
 
@@ -301,7 +305,7 @@ class Plugin_Name {
     */
     public function set_db_connection() {
 
-        $config = new Plugin_Abbr_Config();
+        $config = Plugin_Abbr_Config::set_config();
 
         $this->conn = new mysqli(
             $config->host,

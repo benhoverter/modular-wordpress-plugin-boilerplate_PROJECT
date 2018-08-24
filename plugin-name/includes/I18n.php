@@ -9,8 +9,8 @@
 * @link       http://example.com
 * @since      1.0.0
 *
-* @package    Plugin_Name
-* @subpackage Plugin_Name/includes
+* @package    plugin-name
+* @subpackage plugin-name/includes
 */
 
 /**
@@ -20,8 +20,8 @@
 * so that it is ready for translation.
 *
 * @since      1.0.0
-* @package    Plugin_Name
-* @subpackage Plugin_Name/includes
+* @package    plugin-name
+* @subpackage plugin-name/includes
 * @author     Your Name <email@example.com>
 */
 class Plugin_Abbr_i18n {

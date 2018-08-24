@@ -6,8 +6,8 @@
 * @link       http://example.com
 * @since      1.0.0
 *
-* @package    Plugin_Name
-* @subpackage Plugin_Name/public/element
+* @package    plugin-name
+* @subpackage plugin-name/public/element
 */
 
 /**
@@ -15,8 +15,8 @@
 *
 * Here's the description of how it does it.
 *
-* @package    Plugin_Name
-* @subpackage Plugin_Name/public/element
+* @package    plugin-name
+* @subpackage plugin-name/public/element
 * @author     Ben Hoverter <ben.hoverter@gmail.com>
 */
 class Plugin_Abbr_Public_Element {

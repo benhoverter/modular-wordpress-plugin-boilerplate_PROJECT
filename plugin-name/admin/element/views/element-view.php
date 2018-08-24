@@ -6,8 +6,8 @@
 * @link       http://example.com
 * @since      1.0.0
 *
-* @package    Plugin_Name
-* @subpackage Plugin_Name/admin/element/views
+* @package    plugin-name
+* @subpackage plugin-name/admin/element/views
 */
 ?>
 

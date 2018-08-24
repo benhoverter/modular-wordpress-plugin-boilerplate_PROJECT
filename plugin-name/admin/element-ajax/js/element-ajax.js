@@ -1,14 +1,13 @@
-
-/*
-
-AJAX JavaScript for Plugin Name: Admin Display
-
-Version: 1.0.0
-
-Author: Ben Hoverter
-Author URI: http://benhoverter.com
-
-*/
+/**
+ * JavaScript for Admin AJAX Element
+ *
+ * @link       http://example.com
+ * @since      1.0.0
+ *
+ * @package    plugin-name
+ * @subpackage plugin-name/admin/element-ajax/js
+ */
+ 
 ( function($) {
 
     'use strict';

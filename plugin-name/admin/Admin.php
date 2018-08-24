@@ -6,18 +6,19 @@
 * @link       http://example.com
 * @since      1.0.0
 *
-* @package    Plugin_Name
-* @subpackage Plugin_Name/admin
+* @package    plugin-name
+* @subpackage plugin-name/admin
 */
 
 /**
 * The admin-specific functionality of the plugin.
 *
-* Defines the plugin name, version,
-* and enqueues the admin-facing stylesheet and JavaScript.
+* Defines the plugin name and version,
+* enqueues the admin-facing stylesheet and JavaScript,
+* and pipes in the admin-facing functions.
 *
-* @package    Plugin_Name
-* @subpackage Plugin_Name/admin
+* @package    plugin-name
+* @subpackage plugin-name/admin
 * @author     Ben Hoverter <ben.hoverter@gmail.com>
 */
 class Plugin_Abbr_Admin {

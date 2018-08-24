@@ -1,13 +1,12 @@
-/*
-
-JavaScript for Plugin Name: Public Display
-
-Version: 1.0.0
-
-Author: Ben Hoverter
-Author URI: http://benhoverter.com
-
-*/
+/**
+ * JavaScript for Public Element
+ *
+ * @link       http://example.com
+ * @since      1.0.0
+ *
+ * @package    plugin-name
+ * @subpackage plugin-name/public/element/js
+ */
 
 (function( $ ) {
 	'use strict';

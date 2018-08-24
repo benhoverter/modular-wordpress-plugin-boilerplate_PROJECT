@@ -1,7 +1,18 @@
 /*
  *  Gulp config file
- *  Project: plugin_name
+ *  @project plugin_name
  *  Author: Ben Hoverter
+ */
+
+/**
+ * Gulp build config file.
+ *
+ * @link        http://example.com
+ * @since       1.0.0
+ *
+ * @package     plugin-name
+ * @Author      Ben Hoverter
+ *
  */
 
 const gulp =          require( 'gulp' );
@@ -32,7 +43,7 @@ gulp.task( 'default', () => {       // Do it all.
 gulp.task( 'css-public-clean', () => {                      // Delete the old .css file.
     return gulp.src( './plugin-name/dist/public/*.css', { read: false } )
         .pipe( clean() );
-} );    // Working.
+} );
 
 gulp.task( 'css-public', [ 'css-public-clean' ], () => {
     return gulp.src( './plugin-name/public/**/*.scss' )     // Get everything Sassy.
@@ -43,14 +54,14 @@ gulp.task( 'css-public', [ 'css-public-clean' ], () => {
         .pipe( concat( 'public.min.css' ) )                 // Combine all files into one.
         .pipe( csso() )                                     // Minify the CSS.
         .pipe( gulp.dest( './plugin-name/dist/public' ) );  // Put the new file here.
-} );    // Working.
+} );
 
 
 // ***** PUBLIC JAVASCRIPT ***** //
 gulp.task( 'js-public-clean', () => {                       // Delete the old .js and .map files.
     return gulp.src( './plugin-name/dist/public/*.js*', { read: false } )
         .pipe( clean() );
-} );    // Working.
+} );
 
 gulp.task( 'js-public', [ 'js-public-clean' ], () => {
     return gulp.src( './plugin-name/public/**/*.js' )       // Get everything scripty.
@@ -63,7 +74,7 @@ gulp.task( 'js-public', [ 'js-public-clean' ], () => {
         .pipe( sourcemaps.write( '.' ) )                    // Place the sourcemap next to public.min.js.
         .pipe( gulp.dest( './plugin-name/dist/public' ) );
 
-} );    //  Working.
+} );
 
 
 
@@ -71,7 +82,7 @@ gulp.task( 'js-public', [ 'js-public-clean' ], () => {
 gulp.task( 'css-admin-clean', () => {                      // Delete the old .css file.
     return gulp.src( './plugin-name/dist/admin/*.css', { read: false } )
         .pipe( clean() );
-} );    // Working.
+} );
 
 gulp.task( 'css-admin', [ 'css-admin-clean' ], () => {
     return gulp.src( './plugin-name/admin/**/*.scss' )     // Get everything Sassy.
@@ -82,14 +93,14 @@ gulp.task( 'css-admin', [ 'css-admin-clean' ], () => {
         .pipe( concat( 'admin.min.css' ) )                 // Combine all files into one.
         .pipe( csso() )                                     // Minify the CSS.
         .pipe( gulp.dest( './plugin-name/dist/admin' ) );  // Put the new file here.
-} );    // Working.
+} );
 
 
 // ***** ADMIN JAVASCRIPT ***** //
 gulp.task( 'js-admin-clean', () => {                       // Delete the old .js and .map files.
     return gulp.src( './plugin-name/dist/admin/*.js*', { read: false } )
         .pipe( clean() );
-} );    // Working.
+} );
 
 gulp.task( 'js-admin', [ 'js-admin-clean' ], () => {
     return gulp.src( './plugin-name/admin/**/*.js' )       // Get everything scripty.
@@ -102,4 +113,4 @@ gulp.task( 'js-admin', [ 'js-admin-clean' ], () => {
         .pipe( sourcemaps.write( '.' ) )                    // Place the sourcemap next to admin.min.js.
         .pipe( gulp.dest( './plugin-name/dist/admin' ) );
 
-} );    //  Working.
+} );

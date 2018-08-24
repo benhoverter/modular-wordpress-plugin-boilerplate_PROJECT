@@ -10,7 +10,7 @@
 *
 * @link              https://github.com/benhoverter/modular-wordpress-plugin-boilerplate
 * @since             1.0.0
-* @package           Modular_Plugin_Name
+* @package           plugin-name
 *
 * @wordpress-plugin
 * Plugin Name:       A Modular WordPress Plugin Boilerplate

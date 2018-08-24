@@ -6,18 +6,19 @@
 * @link       http://example.com
 * @since      1.0.0
 *
-* @package    Plugin_Name
-* @subpackage Plugin_Name/public
+* @package    plugin-name
+* @subpackage plugin-name/public
 */
 
 /**
 * The public-facing functionality of the plugin.
 *
-* Defines the plugin name, version,
-* and enqueues the public-facing stylesheet and JavaScript.
+* Defines the plugin name and version,
+* enqueues the public-facing stylesheet and JavaScript,
+* and pipes in the public-facing functions.
 *
-* @package    Plugin_Name
-* @subpackage Plugin_Name/public
+* @package    plugin-name
+* @subpackage plugin-name/public
 * @author     Ben Hoverter <ben.hoverter@gmail.com>
 */
 class Plugin_Abbr_Public {
