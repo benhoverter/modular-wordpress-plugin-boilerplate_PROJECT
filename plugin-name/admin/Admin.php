@@ -99,7 +99,7 @@ public function __construct( $plugin_name, $version /*, $conn, $queries */ ) {
     $this->plugin_name = $plugin_name;
     $this->version = $version;
 
-    $this->load_dependencies();
+    $this->load_dependencies( $plugin_name, $version );
     $this->set_elements( $plugin_name, $version );
 
     // For DB interactions:
@@ -117,17 +117,19 @@ public function __construct( $plugin_name, $version /*, $conn, $queries */ ) {
 * @since    1.0.0
 * @access   private
 */
-private function load_dependencies() {
+private function load_dependencies( $plugin_name, $version ) {
 
     /**
     * The element responsible for ________.
     */
     require_once plugin_dir_path( __FILE__ ) . 'element/Element.php';
+    $this->element = new Plugin_Abbr_Admin_Element( $plugin_name, $version );
 
     /**
     * The AJAX element responsible for ________.
     */
     require_once plugin_dir_path( __FILE__ ) . 'element-ajax/Element-Ajax.php';
+    $this->element_ajax = new Plugin_Abbr_Admin_Element_Ajax( $plugin_name, $version );
 
 }
 
