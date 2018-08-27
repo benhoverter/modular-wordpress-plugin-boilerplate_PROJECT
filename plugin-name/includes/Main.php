@@ -212,6 +212,7 @@ class Plugin_Name {
     private function define_admin_hooks() {
 
         $plugin_admin = new Plugin_Abbr_Admin( $this->get_plugin_name(), $this->get_version() );
+        $element = $plugin_admin->element;
 
         $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
         $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -219,7 +220,8 @@ class Plugin_Name {
         // Standard admin element hooks go here:
         //$this->loader->add_action( 'add_meta_boxes{_post_type}', $plugin_admin->element, 'render_metabox' );
         //$this->loader->add_action( 'save_post{_post_type}', $plugin_admin->element, 'save_metabox' );
-        //$this->loader->add_action( 'hook_name', $plugin_admin->element_ajax, 'render_view' );
+        $this->loader->add_action( 'admin_init', $element, 'render_view' );
+        //$this->loader->add_action( 'admin_init', $plugin_admin, 'admin_test' );
 
         // AJAX admin element hooks go here:
         //$this->loader->add_action( 'wp_ajax_{action_name}', $plugin_admin->element_ajax, 'element_ajax_callback' );
@@ -330,6 +332,8 @@ class Plugin_Name {
 
         return $this->queries;
     }
+
+
 
 
 }

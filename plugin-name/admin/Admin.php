@@ -87,12 +87,24 @@ class Plugin_Abbr_Admin {
     private $queries;
 
 
+
+    /**
+    * The instance of the test element.
+    *
+    * @since    1.0.0
+    * @access   public
+    * @var      Plugin_Abbr_Admin_Element    $element    The instance of the test element.
+    */
+    public $element;
+
+
+
     /**
     * Initialize the class and set its properties.
     *
     * @since    1.0.0
-    * @param      string    $plugin_name       The name of the plugin.
-    * @param      string    $version    The version of this plugin.
+    * @param      string    $plugin_name        The name of the plugin.
+    * @param      string    $version            The version of this plugin.
     */
     public function __construct( $plugin_name, $version /*, $conn, $queries */ ) {
 
@@ -201,5 +213,9 @@ class Plugin_Abbr_Admin {
     }
 
 
+
+    public function admin_test() {
+        echo '<div id="admin-test">Admin test (not view).</div>';
+    }
 
 }

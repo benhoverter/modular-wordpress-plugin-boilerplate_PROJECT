@@ -12,3 +12,4 @@
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. No classes! -->
+<div id="admin-test-view">Admin test view</div>

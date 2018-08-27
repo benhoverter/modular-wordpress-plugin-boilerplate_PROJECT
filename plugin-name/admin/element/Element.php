@@ -66,7 +66,7 @@ class Plugin_Abbr_Admin_Element {
         /**
         * The view displaying ________.
         */
-        include( plugin_dir_path( dirname( __FILE__ ) ) . 'views/element-view.php' ) ;
+        include( plugin_dir_path( __FILE__ ) . 'views/view-name.php' ) ;
 
     }
 
