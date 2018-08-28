@@ -1,18 +1,21 @@
 /**
- * JS for: public/element-ajax/view-name.php.
+ * JS for: public/module-ajax/views/view-name.php.
  *
  * @link       http://example.com
  * @since      1.0.0
  *
  * @package    plugin-name
- * @subpackage plugin-name/public/element-ajax/js
+ * @subpackage plugin-name/public/module-ajax/js
  */
 ( function($) {
 
     'use strict';
 
     $( document ).ready( function() {
-        console.log( "plugin-name-public-ajax.js enqueued." );
+
+        console.log( "Module-Ajax's view-name.js loaded." );
+
+        // Do the thing.
 
         // Bind the event handler to the delete button:
         bindHandler();

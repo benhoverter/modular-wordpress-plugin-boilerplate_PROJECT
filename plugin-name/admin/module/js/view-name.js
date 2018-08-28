@@ -1,22 +1,20 @@
 /**
- * JS for: admin/element/view-name.php.
+ * JS for: admin/module/views/view-name.php.
  *
  * @link       http://example.com
  * @since      1.0.0
  *
  * @package    plugin-name
- * @subpackage plugin-name/admin/element/js
+ * @subpackage plugin-name/admin/module/js
  */
 
  (function( $ ) {
 	'use strict';
 
     $(document).ready( function() {
+        console.log( "Module's view-name.js loaded." );
 
-        const testfunc = ( a ) => a * a;
-
-        console.log( testfunc( 23 ) );
-
+        // Do the thing.
 
     } ); // END: document.ready
 

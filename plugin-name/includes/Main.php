@@ -93,23 +93,29 @@ class Plugin_Name {
         }
 
         $this->plugin_name = 'Plugin Name';
-
         $this->load_dependencies_includes();
+
+        // Localization.
+        $this->set_locale();
+
+        // Add new module files to one of these:
         $this->load_dependencies_admin();
         $this->load_dependencies_public();
         $this->load_dependencies_config();
 
-        $this->set_locale();
-
+        // These shouldn't need modification:
         $this->define_admin_asset_hooks();
         $this->define_public_asset_hooks();
-        //$this->define_settings_hooks();
 
-        //$this->define_admin_module_hooks();
-        //$this->define_admin_module_ajax_hooks();
+        // The WeDevs Settings API interface:
+        $this->define_settings_hooks();
 
-        //$this->define_public_module_hooks();
-        //$this->define_public_module_ajax_hooks();
+        // Create a new hook definer for each module:
+        $this->define_admin_module_hooks();
+        $this->define_admin_module_ajax_hooks();
+
+        $this->define_public_module_hooks();
+        $this->define_public_module_ajax_hooks();
 
     }
 
@@ -325,7 +331,6 @@ class Plugin_Name {
         //$this->loader->add_action( 'add_meta_boxes{_post_type}', $module->element, 'render_metabox' );
         //$this->loader->add_action( 'save_post{_post_type}', $module->element, 'save_metabox' );
         $this->loader->add_action( 'admin_init', $module, 'render_view' );
-        $this->loader->add_action( 'admin_init', $module, 'admin_test' );
 
     }
 
@@ -346,7 +351,7 @@ class Plugin_Name {
         $this->loader->add_action( 'admin_init', $module_ajax, 'render_view' );
 
         // AJAX hooks go here:
-        $this->loader->add_action( 'wp_ajax_{action_name}', $module_ajax, 'element_ajax_callback' );
+        //$this->loader->add_action( 'wp_ajax_{action_name}', $module_ajax, 'element_ajax_callback' );
 
     }
 

@@ -1,11 +1,11 @@
 /**
- * JS for: admin/element-ajax/view-name.php.
+ * JS for: admin/module-ajax/views/view-name.php.
  *
  * @link       http://example.com
  * @since      1.0.0
  *
  * @package    plugin-name
- * @subpackage plugin-name/admin/element/js
+ * @subpackage plugin-name/admin/module-ajax/js
  */
 
 ( function($) {
@@ -13,7 +13,10 @@
     'use strict';
 
     $( document ).ready( function() {
-        console.log( "plugin-name-admin-ajax.js enqueued." );
+        console.log( "Module-Ajax's view-name.js loaded." );
+
+        // Do the thing.
+
 
         // Bind the event handler to the delete button:
         bindHandler();
@@ -104,7 +107,7 @@
 
         // *********************  Other sample AJAX functions for save and input check functionality. ************************* //
 
-        console.log( "AJAX scripts reached." );
+        //console.log( "AJAX scripts reached." );
 
         var $inputs = $( '#event-materials-table input' );
         setSessionMats( $inputs );
@@ -116,7 +119,7 @@
             var sessionMats = $inputs.serialize(); // Crude. Proof of concept. Do by input ID.
 
             sessionStorage.setItem( 'sessionMats', sessionMats );
-            console.log( "sessionMats set to: " + sessionStorage.getItem( 'sessionMats' ) + "(setSessionMats)");
+            //console.log( "sessionMats set to: " + sessionStorage.getItem( 'sessionMats' ) + "(setSessionMats)");
 
         }
 
@@ -127,7 +130,7 @@
 
             // Ensure a clean slate:
             $inputs.off( 'keyup', '.event_materials' );
-            console.log("Keyup unbound from " + $inputs + "(bindKeyupHandler)" );
+            //console.log("Keyup unbound from " + $inputs + "(bindKeyupHandler)" );
             // $inputs.removeClass( 'listening' );
 
             // Bind the handler:
@@ -147,7 +150,7 @@
                 }
 
             } );
-            console.log("Keyup bound to " + $inputs + "(bindKeyupHandler)");
+            //console.log("Keyup bound to " + $inputs + "(bindKeyupHandler)");
 
             $inputs.addClass( 'listening' );
 
@@ -162,17 +165,17 @@
 
             var $button = $( $inputs ).parents( '.inside' ).first().find( '#event-materials-save a.button' );
 
-            console.log( "compareMatsToSession ran on " + $inputs );
+            //console.log( "compareMatsToSession ran on " + $inputs );
 
             if ( currentMats === sessionMats ) {
                 unbindSaveAjax( $button );
-                console.log("currentMats = sessionMats. Button unbound. (compareMatsToSession)");
+                //console.log("currentMats = sessionMats. Button unbound. (compareMatsToSession)");
 
             } else {
                 bindSaveAjax( $button );
-                console.log("currentMats != sessionMats. Button bound. (compareMatsToSession)");
-                console.log( "currentMats = " + currentMats );
-                console.log( "sessionMats = " + sessionMats );
+                //console.log("currentMats != sessionMats. Button bound. (compareMatsToSession)");
+                //console.log( "currentMats = " + currentMats );
+                //console.log( "sessionMats = " + sessionMats );
 
             }
         }
@@ -185,7 +188,7 @@
 
             // Ensure a clean slate:
             $button.off( 'click' );
-            console.log("Button unbound. (bindSaveAjax)");
+            //console.log("Button unbound. (bindSaveAjax)");
 
             // Bind the handler:
             $button.click( function( event ) {
@@ -199,19 +202,19 @@
 
             });
 
-            console.log("Button bound (bindSaveAjax).");
+            //console.log("Button bound (bindSaveAjax).");
         }
 
         function unbindSaveAjax( $button ) {
             // Unbind the Save button and remove the 'ready' class:
             $button.removeClass( 'ready' ).removeAttr('href').off( 'click' );
-            console.log( "Button unbound (unbindSaveAjax)" );
+            //console.log( "Button unbound (unbindSaveAjax)" );
         }
 
         // Define the ajax function:
         function updateEventMats( $table ) {
 
-            console.log("AJAX call triggered! (updateEventMats)");
+            //console.log("AJAX call triggered! (updateEventMats)");
 
             var materials = $( $table ).find( 'input' ).serialize();
             //console.log( materials );
@@ -254,9 +257,9 @@
 
                     $( '#event-materials-save-result span' ).html( "Sorry, unable to save." ).fadeIn( 'fast' );
 
-                    console.log( "jqXHR was: " + jqXHR );
-                    console.log( "Status returned was: " + status ); // error
-                    console.log( "Error thrown was: " + error );     // bad request
+                    //console.log( "jqXHR was: " + jqXHR );
+                    //console.log( "Status returned was: " + status ); // error
+                    //console.log( "Error thrown was: " + error );     // bad request
                 }
 
             }); // END OF: $.ajax().
