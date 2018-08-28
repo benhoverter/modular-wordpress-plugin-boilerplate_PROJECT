@@ -7,7 +7,7 @@
 * @since      1.0.0
 *
 * @package    plugin-name
-* @subpackage plugin-name/public/element-ajax
+* @subpackage plugin-name/admin/module-ajax
 */
 
 /**
@@ -16,10 +16,10 @@
 * Here's the description of how it does it.
 *
 * @package    plugin-name
-* @subpackage plugin-name/public/element-ajax
+* @subpackage plugin-name/admin/module-ajax
 * @author     Ben Hoverter <ben.hoverter@gmail.com>
 */
-class Plugin_Abbr_Public_Element_Ajax {
+class Plugin_Abbr_Admin_Module_Ajax {
 
     /**
     * The ID of this plugin.
@@ -40,22 +40,22 @@ class Plugin_Abbr_Public_Element_Ajax {
     private $version;
 
     /**
-    * The data object for public AJAX functions.
+    * The data array for admin AJAX functions.
     *
     * @since    1.0.0
-    * @access   private
-    * @var      associative array    $ajax_data    The data for public AJAX functions.
+    * @access   public
+    * @var      associative array    $ajax_data    The data for admin AJAX functions.
     */
-    private $ajax_data;
+    public $ajax_data;
 
     /**
-    * The nonce for the AJAX call.  Must be available to public_ajax_callback().
+    * The nonce for the AJAX call.  Must be available to event_mats_ajax_save().
     *
     * @since    1.0.0
-    * @access   private
+    * @access   public
     * @var      string    $ajax_nonce    The nonce for the AJAX call.
     */
-    private $ajax_nonce;
+    public $ajax_nonce;
 
     /**
     * The current post ID.  Needed for AJAX (otherwise unavailable).
@@ -71,10 +71,10 @@ class Plugin_Abbr_Public_Element_Ajax {
     * Initialize the class and set its properties.
     *
     * @since    1.0.0
-    * @param      string    $plugin_name       The name of the plugin.
-    * @param      string    $version           The version of this plugin.
+    * @param      string    $plugin_name       The name of this plugin.
+    * @param      string    $version    The version of this plugin.
     */
-    public function __construct( $plugin_name, $version ) {
+    public function __construct( $plugin_name, $version/* , $conn, $query_master_list */ ) {
 
         $this->plugin_name = $plugin_name;
         $this->version = $version;
@@ -84,9 +84,26 @@ class Plugin_Abbr_Public_Element_Ajax {
 
     // ***** PRE-CALL METHODS ***** //
 
+
+    /**
+    * Render a view.
+    * Different hooks will require separate render_{} methods.
+    *
+    * @since    1.0.0
+    */
+    public function render_view() {
+
+        /**
+        * The view displaying ________.
+        */
+        include( plugin_dir_path( __FILE__ ) . 'views/view-name.php' ) ;
+
+    }
+
+
     /**
     * Get all data to be passed to the frontend.
-    * Localized in "../Public.php".
+    * Localized in "../Admin.php".
     *
     * @return   array     $this->ajax_data     The associative array of data to pass.
     * @since    1.0.0
@@ -96,8 +113,8 @@ class Plugin_Abbr_Public_Element_Ajax {
         // Needed on the frontend. No touching!
         $this->ajax_data[ 'ajax_url' ] = admin_url( 'admin-ajax.php' );
 
-        // Gets checked in element_ajax_callback().
-        $this->ajax_data[ 'element_ajax_nonce' ] = wp_create_nonce( 'plugin_abbr_element_ajax_nonce' );
+        // Gets checked in module_ajax_callback().
+        $this->ajax_data[ 'module_ajax_nonce' ] = wp_create_nonce( 'plugin_abbr_module_ajax_nonce' );
 
         // Add key => value pairs here.
 
@@ -113,9 +130,9 @@ class Plugin_Abbr_Public_Element_Ajax {
     *
     * @since    1.0.0
     */
-    public function element_ajax_callback() {
+    public function module_ajax_callback() {
 
-        check_ajax_referer( 'plugin_abbr_element_ajax_nonce', 'element_ajax_nonce' ); // Dies if false.
+        check_ajax_referer( 'plugin_abbr_module_ajax_nonce', 'module_ajax_nonce' ); // Dies if false.
 
         // Call the handler function.
         echo $this->handler_function();
@@ -127,7 +144,7 @@ class Plugin_Abbr_Public_Element_Ajax {
 
 
     /**
-    * Handler function called by element_ajax_callback().
+    * Handler function called by module_ajax_callback().
     *
     * @since    1.0.0
     */

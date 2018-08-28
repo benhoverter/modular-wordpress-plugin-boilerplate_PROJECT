@@ -1,7 +1,7 @@
 <?php
 
 /**
-* The admin-specific functionality of the plugin.
+* The admin-specific script and style enqueueing and versioning processes.
 *
 * @link       http://example.com
 * @since      1.0.0
@@ -11,17 +11,17 @@
 */
 
 /**
-* The admin-specific functionality of the plugin.
+* The admin-specific script and style enqueueing and versioning processes.
 *
 * Defines the plugin name and version,
 * enqueues the admin-facing stylesheet and JavaScript,
-* and pipes in the admin-facing functions.
+* and assigns file modification time versions to break cache.
 *
 * @package    plugin-name
 * @subpackage plugin-name/admin
 * @author     Ben Hoverter <ben.hoverter@gmail.com>
 */
-class Plugin_Abbr_Admin {
+class Plugin_Abbr_Admin_Assets {
 
     /**
     * The ID of this plugin.
@@ -41,61 +41,6 @@ class Plugin_Abbr_Admin {
     */
     private $version;
 
-    /**
-    * The data array for admin AJAX functions.
-    *
-    * @since    1.0.0
-    * @access   public
-    * @var      associative array    $ajax_data    The data for admin AJAX functions.
-    */
-    public $ajax_data;
-
-    /**
-    * The nonce for the AJAX call.  Must be available to event_mats_ajax_save().
-    *
-    * @since    1.0.0
-    * @access   public
-    * @var      string    $ajax_nonce    The nonce for the AJAX call.
-    */
-    public $ajax_nonce;
-
-    /**
-    * The current post ID.  Needed for AJAX (otherwise unavailable).
-    *
-    * @since    1.0.0
-    * @access   public
-    * @var      object    $post_id    The current post ID.
-    */
-    public $post_id;
-
-    /**
-    * The current mysqli database connection object.
-    *
-    * @since    1.0.0
-    * @access   private
-    * @var      string    $conn    The current mysqli database connection object.
-    */
-    private $conn;
-
-    /**
-    * The associative array holding all SQL queries.
-    *
-    * @since    1.0.0
-    * @access   private
-    * @var      string    $queries    The associative array holding all SQL queries.
-    */
-    private $queries;
-
-
-
-    /**
-    * The instance of the test element.
-    *
-    * @since    1.0.0
-    * @access   public
-    * @var      Plugin_Abbr_Admin_Element    $element    The instance of the test element.
-    */
-    public $element;
 
 
 
@@ -111,36 +56,9 @@ class Plugin_Abbr_Admin {
         $this->plugin_name = $plugin_name;
         $this->version = $version;
 
-        $this->load_dependencies( $plugin_name, $version );
-
-        // For DB interactions:
+        // For DB interactions:     OLD.  NEEDED IN MODULES.
         //$this->conn = $conn;
         //$this->queries = $queries;
-
-    }
-
-
-    /**
-    * Load the required dependencies for the Admin class elements.
-    *
-    * Should require_once each Element class file in /admin/element.
-    *
-    * @since    1.0.0
-    * @access   private
-    */
-    private function load_dependencies( $plugin_name, $version ) {
-
-        /**
-        * The element responsible for ________.
-        */
-        require_once plugin_dir_path( __FILE__ ) . 'element/Element.php';
-        $this->element = new Plugin_Abbr_Admin_Element( $plugin_name, $version );
-
-        /**
-        * The AJAX element responsible for ________.
-        */
-        require_once plugin_dir_path( __FILE__ ) . 'element-ajax/Element-Ajax.php';
-        $this->element_ajax = new Plugin_Abbr_Admin_Element_Ajax( $plugin_name, $version );
 
     }
 
@@ -206,16 +124,16 @@ class Plugin_Abbr_Admin {
         // Enqueue the scripts.
         wp_enqueue_script( $this->plugin_name );
 
-        // PHP data for the frontend.  Do one wp_localize_script() call per element.
+        // PHP data for the frontend.  Do one wp_localize_script() call per module.
         // Localize the script to make PHP data available to AJAX JS.  Define data in Element-Ajax.php.
-        wp_localize_script( $this->plugin_name, 'abbr_admin_element_data', $this->element_ajax->get_ajax_data() );
+        //wp_localize_script( $this->plugin_name, 'abbr_admin_module_data', $this->module_ajax->get_ajax_data() );
 
     }
 
 
 
-    public function admin_test() {
-        echo '<div id="admin-test">Admin test (not view).</div>';
+    public function admin_enqueue_test() {
+        echo '<div id="admin-test">Admin enqueue test.</div>';
     }
 
 }

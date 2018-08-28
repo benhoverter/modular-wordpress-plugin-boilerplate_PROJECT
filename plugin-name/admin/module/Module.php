@@ -7,7 +7,7 @@
 * @since      1.0.0
 *
 * @package    plugin-name
-* @subpackage plugin-name/public/element
+* @subpackage plugin-name/admin/module
 */
 
 /**
@@ -16,10 +16,10 @@
 * Here's the description of how it does it.
 *
 * @package    plugin-name
-* @subpackage plugin-name/public/element
+* @subpackage plugin-name/admin/module
 * @author     Ben Hoverter <ben.hoverter@gmail.com>
 */
-class Plugin_Abbr_Public_Element {
+class Plugin_Abbr_Admin_Module {
 
     /**
     * The ID of this plugin.
@@ -64,9 +64,9 @@ class Plugin_Abbr_Public_Element {
     public function render_view() {
 
         /**
-        * The view responsible for ________.
+        * The view displaying ________.
         */
-        include( plugin_dir_path( dirname( __FILE__ ) ) . 'views/element-ajax-view.php' ) ;
+        include( plugin_dir_path( __FILE__ ) . 'views/view-name.php' ) ;
 
     }
 

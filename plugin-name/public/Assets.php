@@ -21,7 +21,7 @@
 * @subpackage plugin-name/public
 * @author     Ben Hoverter <ben.hoverter@gmail.com>
 */
-class Plugin_Abbr_Public {
+class Plugin_Abbr_Public_Assets {
 
     /**
     * The ID of this plugin.
@@ -41,42 +41,6 @@ class Plugin_Abbr_Public {
     */
     private $version;
 
-    /**
-    * The instance of the Plugin_Element() class.
-    *
-    * @since    1.0.0
-    * @access   private
-    * @var      object    $element    The instance of the Plugin_Element() class.
-    */
-    public $element;
-
-    /**
-    * The instance of the Plugin_Element_Ajax() class.
-    *
-    * @since    1.0.0
-    * @access   private
-    * @var      object    $element_ajax    The instance of the Plugin_Element_Ajax() class.
-    */
-    public $element_ajax;
-
-    /**
-    * The current mysqli database connection object.
-    *
-    * @since    1.0.0
-    * @access   private
-    * @var      string    $conn    The current mysqli database connection object.
-    */
-    private $conn;
-
-    /**
-    * The associative array holding all SQL queries.
-    *
-    * @since    1.0.0
-    * @access   private
-    * @var      string    $queries    The associative array holding all SQL queries.
-    */
-    private $queries;
-
 
     /**
     * Initialize the class and set its properties.
@@ -90,36 +54,9 @@ class Plugin_Abbr_Public {
         $this->plugin_name = $plugin_name;
         $this->version = $version;
 
-        $this->load_dependencies( $plugin_name, $version );
-
-        // For DB interactions:
+        // For DB interactions:     TODO: Move to modules.
         //$this->conn = $conn;
         //$this->queries = $queries;
-
-    }
-
-
-    /**
-    * Load the required dependencies for the Public class' elements.
-    *
-    * Should require_once each Element class file in /public/element.
-    *
-    * @since    1.0.0
-    * @access   private
-    */
-    private function load_dependencies( $plugin_name, $version ) {
-
-        /**
-        * The element responsible for ________.
-        */
-        require_once plugin_dir_path( __FILE__ ) . 'element/Element.php';
-        $this->element = new Plugin_Abbr_Public_Element( $plugin_name, $version );
-
-        /**
-        * The AJAX element responsible for ________.
-        */
-        require_once plugin_dir_path( __FILE__ ) . 'element-ajax/Element-Ajax.php';
-        $this->element_ajax = new Plugin_Abbr_Public_Element_Ajax( $plugin_name, $version );
 
     }
 
@@ -185,9 +122,9 @@ class Plugin_Abbr_Public {
         // Enqueue the scripts.
         wp_enqueue_script( $this->plugin_name );
 
-        // PHP data for the frontend.  One wp_localize_script() call per element.
+        // PHP data for the frontend.  One wp_localize_script() call per module.
         // Localize the script to make PHP data available to AJAX JS.  Define data in Element-Ajax.php.
-        wp_localize_script( $this->plugin_name, 'abbr_public_element_data', $this->element_ajax->get_ajax_data() );
+        //wp_localize_script( $this->plugin_name, 'abbr_public_element_data', $this->element_ajax->get_ajax_data() );
 
     }
 

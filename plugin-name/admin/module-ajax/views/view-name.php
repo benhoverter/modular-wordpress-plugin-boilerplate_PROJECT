@@ -11,4 +11,4 @@
 */
 ?>
 
-<!-- This file should primarily consist of HTML with a little bit of PHP. No classes! -->
+<div id="admin-module-ajax">Admin AJAX module.</div>
