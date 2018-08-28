@@ -101,6 +101,15 @@ class Plugin_Name {
         $this->define_public_hooks();
         $this->define_settings_hooks();
 
+        // New process:
+        /*
+        $this->define_public_enqueue_hooks();
+        $this->define_admin_enqueue_hooks();
+        $this->define_module_hooks();
+
+
+        */
+
     }
 
     /**
