@@ -1,7 +1,7 @@
 /*
  *  Gulp config file
  *  @project plugin_name
- *  Author: Ben Hoverter
+ *  Author: Your Name
  */
 
 /**
@@ -11,7 +11,7 @@
  * @since       1.0.0
  *
  * @package     plugin-name
- * @Author      Ben Hoverter
+ * @Author      Your Name
  *
  */
 

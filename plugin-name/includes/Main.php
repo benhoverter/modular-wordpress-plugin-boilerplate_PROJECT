@@ -25,7 +25,7 @@
 * @since      1.0.0
 * @package    plugin-name
 * @subpackage plugin-name/includes
-* @author     Ben Hoverter <ben.hoverter@gmail.com>
+* @author     Your Name <email@example.com>
 */
 class Plugin_Name {
 
@@ -44,9 +44,9 @@ class Plugin_Name {
     *
     * @since    1.0.0
     * @access   protected
-    * @var      string    $plugin_name    The string used to uniquely identify this plugin.
+    * @var      string    $plugin_title    The string used to uniquely identify this plugin.
     */
-    protected $plugin_name;
+    protected $plugin_title;
 
     /**
     * The current version of the plugin.
@@ -92,7 +92,7 @@ class Plugin_Name {
             $this->version = '1.0.0';
         }
 
-        $this->plugin_name = 'Plugin Name';
+        $this->plugin_title = 'Plugin Name';
         $this->load_dependencies_includes();
 
         // Localization.
@@ -416,7 +416,7 @@ class Plugin_Name {
     * @return    string    The name of the plugin.
     */
     public function get_plugin_name() {
-        return $this->plugin_name;
+        return $this->plugin_title;
     }
 
 

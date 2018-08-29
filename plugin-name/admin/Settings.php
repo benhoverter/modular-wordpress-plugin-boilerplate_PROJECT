@@ -16,7 +16,7 @@
 *
 * @package    plugin-name
 * @subpackage plugin-name/admin
-* @author     Ben Hoverter <ben.hoverter@gmail.com> (modifier)
+* @author     Your Name <email@example.com> (modifier)
 * @author     Tareq Hasan, WeDevs Settings API creator
 */
 class Plugin_Abbr_Settings {
@@ -26,9 +26,9 @@ class Plugin_Abbr_Settings {
     *
     * @since    1.0.0
     * @access   private
-    * @var      string    $plugin_name    The ID of this plugin.
+    * @var      string    $plugin_title    The ID of this plugin.
     */
-    private $plugin_name;
+    private $plugin_title;
 
     /**
     * The snake_case slug of this plugin.
@@ -62,13 +62,13 @@ class Plugin_Abbr_Settings {
     * Initialize the class and set its properties.
     *
     * @since    1.0.0
-    * @param      string    $plugin_name       The name of this plugin.
+    * @param      string    $plugin_title       The name of this plugin.
     * @param      string    $version    The version of this plugin.
     */
-    public function __construct( $plugin_name, $version ) {
+    public function __construct( $plugin_title, $version ) {
 
-        $this->plugin_name = $plugin_name;
-        $this->plugin_slug = $this->get_plugin_slug( $plugin_name );
+        $this->plugin_title = $plugin_title;
+        $this->plugin_slug = $this->get_plugin_slug( $plugin_title );
 
         $this->version = $version;
 
@@ -79,14 +79,13 @@ class Plugin_Abbr_Settings {
     }
 
     /**
-    * Generate the snake_case slug from the $plugin_name.
+    * Generate the snake_case slug from the $plugin_title.
     *
     * @since    Custom addition for WeDevs Settings API.
-    * @author   Ben Hoverter
     */
-    private function get_plugin_slug( $plugin_name ) {
+    private function get_plugin_slug( $plugin_title ) {
 
-        $plugin_slug = str_replace( array( ' ', '-' ), '_', strtolower( $plugin_name ) );
+        $plugin_slug = str_replace( array( ' ', '-' ), '_', strtolower( $plugin_title ) );
 
         return $plugin_slug;
     }
@@ -120,7 +119,7 @@ class Plugin_Abbr_Settings {
     /**
     * Add the Options pages and menu items in for all Settings API pages.
     * Additional pages can be generated with new calls to add_options_page().
-    * $plugin_name and $plugin_slug are followed by customizable text.
+    * $plugin_title and $plugin_slug are followed by customizable text.
     *
     * @since    Custom addition for WeDevs Settings API.
     *
@@ -135,7 +134,7 @@ class Plugin_Abbr_Settings {
         * between the defined hooks and the functions defined in this
         * class.
         */
-        add_options_page( $this->plugin_name . ' Settings', $this->plugin_name, 'manage_options', $this->plugin_slug . '_settings', array($this, 'plugin_page') );
+        add_options_page( $this->plugin_title . ' Settings', $this->plugin_title, 'manage_options', $this->plugin_slug . '_settings', array($this, 'plugin_page') );
     }
 
 
@@ -312,7 +311,7 @@ class Plugin_Abbr_Settings {
                     */
                     public function plugin_page() {
                         echo '<div class="wrap">';
-                        echo '<h1>' . $this->plugin_name . ' Settings</h1>';
+                        echo '<h1>' . $this->plugin_title . ' Settings</h1>';
 
                         settings_errors();
 

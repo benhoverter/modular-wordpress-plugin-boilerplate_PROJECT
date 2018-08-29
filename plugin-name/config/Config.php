@@ -18,7 +18,7 @@
 * @since      1.0.0
 * @package    plugin-name
 * @subpackage plugin-name/config
-* @author     Ben Hoverter <ben.hoverter@gmail.com>
+* @author     Your Name <email@example.com>
 */
 class Plugin_Abbr_Config {
 

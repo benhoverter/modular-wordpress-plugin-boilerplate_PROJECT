@@ -19,7 +19,7 @@
 *
 * @package    plugin-name
 * @subpackage plugin-name/admin
-* @author     Ben Hoverter <ben.hoverter@gmail.com>
+* @author     Your Name <email@example.com>
 */
 class Plugin_Abbr_Admin_Assets {
 
@@ -28,9 +28,9 @@ class Plugin_Abbr_Admin_Assets {
     *
     * @since    1.0.0
     * @access   private
-    * @var      string    $plugin_name    The ID of this plugin.
+    * @var      string    $plugin_title    The ID of this plugin.
     */
-    private $plugin_name;
+    private $plugin_title;
 
     /**
     * The version of this plugin.
@@ -48,12 +48,12 @@ class Plugin_Abbr_Admin_Assets {
     * Initialize the class and set its properties.
     *
     * @since    1.0.0
-    * @param      string    $plugin_name        The name of the plugin.
+    * @param      string    $plugin_title        The name of the plugin.
     * @param      string    $version            The version of this plugin.
     */
-    public function __construct( $plugin_name, $version /*, $conn, $queries */ ) {
+    public function __construct( $plugin_title, $version /*, $conn, $queries */ ) {
 
-        $this->plugin_name = $plugin_name;
+        $this->plugin_title = $plugin_title;
         $this->version = $version;
 
         // For DB interactions:     OLD.  NEEDED IN MODULES.
@@ -87,10 +87,10 @@ class Plugin_Abbr_Admin_Assets {
         $admin_css_dir_path = plugin_dir_path( __DIR__ ) . 'assets/admin/admin.min.css';
 
         // Register the style using an automatic and unique version based on modification time.
-        wp_register_style( $this->plugin_name, $admin_css_dir_url, array(), filemtime( $admin_css_dir_path ), 'all' );
+        wp_register_style( $this->plugin_title, $admin_css_dir_url, array(), filemtime( $admin_css_dir_path ), 'all' );
 
         // Enqueue the style.
-        wp_enqueue_style( $this->plugin_name );
+        wp_enqueue_style( $this->plugin_title );
         //wp_enqueue_style( 'thickbox' );
 
     }
@@ -119,14 +119,14 @@ class Plugin_Abbr_Admin_Assets {
         $admin_js_dir_path = plugin_dir_path( __DIR__ ) . 'assets/admin/admin.min.js';
 
         // Register the script using an automatic and unique version based on modification time.
-        wp_register_script( $this->plugin_name, $admin_js_dir_url, array( 'jquery' ), filemtime( $admin_js_dir_path ), true );
+        wp_register_script( $this->plugin_title, $admin_js_dir_url, array( 'jquery' ), filemtime( $admin_js_dir_path ), true );
 
         // Enqueue the scripts.
-        wp_enqueue_script( $this->plugin_name );
+        wp_enqueue_script( $this->plugin_title );
 
         // PHP data for the frontend.  Do one wp_localize_script() call per module.
         // Localize the script to make PHP data available to AJAX JS.  Define data in Element-Ajax.php.
-        //wp_localize_script( $this->plugin_name, 'abbr_admin_module_data', $this->module_ajax->get_ajax_data() );
+        //wp_localize_script( $this->plugin_title, 'abbr_admin_module_data', $this->module_ajax->get_ajax_data() );
 
     }
 

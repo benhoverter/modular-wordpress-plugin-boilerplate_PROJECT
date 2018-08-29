@@ -17,7 +17,7 @@
 *
 * @package    plugin-name
 * @subpackage plugin-name/public/module
-* @author     Ben Hoverter <ben.hoverter@gmail.com>
+* @author     Your Name <email@example.com>
 */
 class Plugin_Abbr_Public_Module {
 
@@ -26,9 +26,9 @@ class Plugin_Abbr_Public_Module {
     *
     * @since    1.0.0
     * @access   private
-    * @var      string    $plugin_name    The ID of this plugin.
+    * @var      string    $plugin_title    The ID of this plugin.
     */
-    private $plugin_name;
+    private $plugin_title;
 
     /**
     * The version of this plugin.
@@ -44,12 +44,12 @@ class Plugin_Abbr_Public_Module {
     * Initialize the class and set its properties.
     *
     * @since    1.0.0
-    * @param      string    $plugin_name       The name of the plugin.
+    * @param      string    $plugin_title       The name of the plugin.
     * @param      string    $version    The version of this plugin.
     */
-    public function __construct( $plugin_name, $version ) {
+    public function __construct( $plugin_title, $version ) {
 
-        $this->plugin_name = $plugin_name;
+        $this->plugin_title = $plugin_title;
         $this->version = $version;
 
     }
