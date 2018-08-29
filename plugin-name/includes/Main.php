@@ -64,7 +64,7 @@ class Plugin_Name {
     * @access   protected
     * @var      string    $conn    The mysqli database connection object instance.
     */
-    public $conn;
+    protected $conn;
 
     /**
     * The array of SQL queries that the plugin can run.
@@ -73,7 +73,8 @@ class Plugin_Name {
     * @access   protected
     * @var      string    $queries    The array of SQL queries that the plugin can run.
     */
-    public $queries;
+    protected $queries;
+
 
 
     /**
@@ -93,15 +94,16 @@ class Plugin_Name {
         }
 
         $this->plugin_title = 'Plugin Name';
-        $this->load_dependencies_includes();
+
+        // Add required files to set_dependencies():
+        $this->load_dependencies( $this->set_dependencies() );
+
+        // Instantiate the Loader object:
+        $this->loader = new Plugin_Abbr_Loader();
 
         // Localization.
         $this->set_locale();
 
-        // Add new module files to one of these:
-        $this->load_dependencies_admin();
-        $this->load_dependencies_public();
-        $this->load_dependencies_config();
 
         // These shouldn't need modification:
         $this->define_admin_asset_hooks();
@@ -116,6 +118,65 @@ class Plugin_Name {
 
         $this->define_public_module_hooks();
         $this->define_public_module_ajax_hooks();
+
+    }
+
+
+    /**
+    * Sets the file dependencies.
+    * Manually enter file paths here.
+    *
+    * @since    1.0.0
+    * @access   private
+    * @return   array       $dependencies       The files to load, relative
+    *                                           to the plugin directory.
+    */
+    private function set_dependencies() {
+
+        /* Manually enter file paths here.
+        *  Paths must be relative to the plugin directory.
+        *  No leading slash: 'admin/Assets.php', not '/admin/Assets.php'.
+        */
+        $dependencies = array(
+
+            // Includes:
+            'includes/I18n.php',
+            'includes/Loader.php',
+
+            // Admin:
+            'admin/Assets.php',
+            'admin/Settings.php',
+            'admin/module/Module.php',
+            'admin/module-ajax/Module-Ajax.php',
+
+            // Public:
+            'public/Assets.php',
+            'public/module/Module.php',
+            'public/module-ajax/Module-Ajax.php',
+
+            // Config:
+            'config/Config.php',
+            'config/Queries.php'       // End of array.  No comma!
+
+        );
+
+        return $dependencies;
+
+    }
+
+
+    /**
+    * Loads all file dependencies.
+    *
+    *
+    * @since    1.0.0
+    * @access   private
+    */
+    private function load_dependencies( $files ) {
+
+        foreach( $files as $file ) {
+            require_once plugin_dir_path( __DIR__ ) . $file;
+        }
 
     }
 
