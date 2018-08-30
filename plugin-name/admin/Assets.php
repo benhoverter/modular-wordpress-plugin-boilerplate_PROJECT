@@ -131,9 +131,4 @@ class Plugin_Abbr_Admin_Assets {
     }
 
 
-
-    public function admin_enqueue_test() {
-        echo '<div id="admin-test">Admin enqueue test.</div>';
-    }
-
 }
