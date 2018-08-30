@@ -564,7 +564,11 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
                             if ( isset( $this->settings_fields[ $form['id'] ] ) ):
                                 ?>
                                 <div style="padding-left: 10px">
-                                    <?php submit_button(); ?>
+                                    <?php /*submit_button(
+                                        '',
+                                        '',
+                                        'submit-' . $form['id']
+                                    ); */?>
                                 </div>
                             <?php endif; ?>
                         </form>

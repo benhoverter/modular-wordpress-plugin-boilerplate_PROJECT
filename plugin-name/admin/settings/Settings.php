@@ -351,6 +351,8 @@ class Plugin_Abbr_Settings {
         $this->settings_api->show_navigation();
         $this->settings_api->show_forms();
 
+        submit_button( '', '', 'submit-all-test' );
+
         echo '</div>';
     }
 
