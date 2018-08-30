@@ -134,7 +134,7 @@ class Plugin_Name {
 
             // Admin:
             'admin/Assets.php',
-            'admin/Settings.php',
+            'admin/settings/Settings.php',
             'admin/module/Module.php',
             'admin/module-ajax/Module-Ajax.php',
 

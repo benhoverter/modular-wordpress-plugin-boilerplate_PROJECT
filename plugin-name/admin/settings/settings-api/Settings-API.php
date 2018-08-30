@@ -26,6 +26,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
         */
         protected $settings_fields = array();
 
+
         public function __construct() {
             add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
         }
@@ -41,6 +42,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
             wp_enqueue_script( 'jquery' );
         }
 
+
         /**
         * Set settings sections
         *
@@ -51,6 +53,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
 
             return $this;
         }
+
 
         /**
         * Add a single section
@@ -63,6 +66,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
             return $this;
         }
 
+
         /**
         * Set settings fields
         *
@@ -73,6 +77,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
 
             return $this;
         }
+
 
         function add_field( $section, $field ) {
             $defaults = array(
@@ -87,6 +92,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
 
             return $this;
         }
+
 
         /**
         * Initialize and registers the settings sections and fields to WordPress
@@ -152,6 +158,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
             }
         }
 
+
         /**
         * Get field description for display
         *
@@ -166,6 +173,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
 
             return $desc;
         }
+
 
         /**
         * Displays a text field for a settings field
@@ -185,6 +193,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
             echo $html;
         }
 
+
         /**
         * Displays a url field for a settings field
         *
@@ -193,6 +202,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
         function callback_url( $args ) {
             $this->callback_text( $args );
         }
+
 
         /**
         * Displays a number field for a settings field
@@ -214,6 +224,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
             echo $html;
         }
 
+
         /**
         * Displays a checkbox for a settings field
         *
@@ -232,6 +243,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
 
             echo $html;
         }
+
 
         /**
         * Displays a multicheckbox for a settings field
@@ -256,6 +268,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
             echo $html;
         }
 
+
         /**
         * Displays a radio button for a settings field
         *
@@ -278,6 +291,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
             echo $html;
         }
 
+
         /**
         * Displays a selectbox for a settings field
         *
@@ -299,6 +313,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
             echo $html;
         }
 
+
         /**
         * Displays a textarea for a settings field
         *
@@ -316,6 +331,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
             echo $html;
         }
 
+
         /**
         * Displays the html for a settings field
         *
@@ -325,6 +341,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
         function callback_html( $args ) {
             echo $this->get_field_description( $args );
         }
+
 
         /**
         * Displays a rich text textarea for a settings field
@@ -355,6 +372,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
             echo $this->get_field_description( $args );
         }
 
+
         /**
         * Displays a file upload field for a settings field
         *
@@ -374,6 +392,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
             echo $html;
         }
 
+
         /**
         * Displays a password field for a settings field
         *
@@ -389,6 +408,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
 
             echo $html;
         }
+
 
         /**
         * Displays a color picker field for a settings field
@@ -426,6 +446,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
             echo $html;
         }
 
+
         /**
         * Sanitize callback for Settings API
         *
@@ -449,6 +470,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
 
             return $options;
         }
+
 
         /**
         * Get sanitization callback for given option slug
@@ -477,6 +499,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
             return false;
         }
 
+
         /**
         * Get the value of a settings field
         *
@@ -495,6 +518,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
 
             return $default;
         }
+
 
         /**
         * Show navigations as tab
@@ -519,6 +543,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
 
             echo $html;
         }
+
 
         /**
         * Show the section settings forms
@@ -549,6 +574,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
             <?php
             $this->script();
         }
+
 
         /**
         * Tabbable JavaScript codes & Initiate Color Picker
@@ -638,6 +664,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
                 <?php
                 $this->_style_fix();
             }
+
 
             function _style_fix() {
                 global $wp_version;
