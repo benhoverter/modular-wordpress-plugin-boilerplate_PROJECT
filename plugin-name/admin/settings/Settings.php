@@ -170,18 +170,38 @@ class Plugin_Abbr_Settings {
         add_menu_page( $this->plugin_title . ' Settings', $this->plugin_title, 'manage_options', $this->plugin_slug . '_settings', array($this, 'plugin_page') );
     }
 
+
     /**
     * Defines the settings page sections in an associative array.
     *
     * Modify values and number of elements for your needs.
-    * Altering names in get_settings_sections() requires matching alteration
-    * in get_settings_fields().
+    * Altering 'id' values in get_settings_sections() requires
+    * matching alterations in get_settings_fields().
+    *
+    * NOTE: This array can take FOUR possible keys!
+    *
+    *           'id' and 'title' are required.
+    *
+    *           However, you can add either a CUSTOM DESCRIPTION or
+    *           a CUSTOM CALLBACK FUNCTION. The description takes precedence,
+    *           and WeDevs_Settings_API::admin_init() cannot display both.
+    *
+    *           You add a description with a 'desc' key whose value is a string
+    *           (HTML is OK, and escaped).
+    *
+    *           You add a description with a 'callback' key whose value is an array
+    *           holding the object instance containing the function and a string
+    *           with the name of the callback function.
+    *           (This is array callable syntax:
+    *               http://php.net/manual/en/language.types.callable.php ).
+    *           ************* This callback should echo its output *************
     *
     * @since    Custom addition for WeDevs Settings API.
     *
     */
     private function get_settings_sections() {
         $sections = array(
+
             array(
                 'id'    => $this->plugin_slug . '_basic_settings',
                 'title' => __( 'Basic Settings', 'textdomain' )
@@ -189,9 +209,23 @@ class Plugin_Abbr_Settings {
             array(
                 'id'    => $this->plugin_slug . '_advanced_settings',
                 'title' => __( 'Advanced Settings', 'textdomain' )
+            ),
+            array(
+                'id'    => $this->plugin_slug . '_custom_settings',
+                'title' => __( 'Custom Settings', 'textdomain' ),
+                //'desc' => '<p class="description">This is a custom description.</p>',
+                'callback' => array(
+                    $this,
+                    'custom_callback'
+                )
             )
+
         );
         return $sections;
+    }
+
+    public function custom_callback() {
+        echo '<div class="custom"><p>This is the output of a custom callback.</p></div>';
     }
 
 

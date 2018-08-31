@@ -103,7 +103,8 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
         * registers them to WordPress and ready for use.
         */
         function admin_init() {
-            //register settings sections
+
+            // Register the settings sections:
             foreach ( $this->settings_sections as $section ) {
                 if ( false == get_option( $section['id'] ) ) {
                     add_option( $section['id'] );
@@ -121,7 +122,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
                 add_settings_section( $section['id'], $section['title'], $callback, $section['id'] );
             }
 
-            //register settings fields
+            // Register the settings fields:
             foreach ( $this->settings_fields as $section => $field ) {
                 foreach ( $field as $option ) {
 
@@ -558,10 +559,10 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
                         <form method="post" action="options.php">
                             <?php
                             do_action( 'wsa_form_top_' . $form['id'], $form );
-                            settings_fields( $form['id'] );
-                            do_settings_sections( $form['id'] );
-                            do_action( 'wsa_form_bottom_' . $form['id'], $form );
-                            if ( isset( $this->settings_fields[ $form['id'] ] ) ):
+                            settings_fields( $form['id'] );                         // WP. Outputs HIDDEN fields.
+                            do_settings_sections( $form['id'] );                    // WP. Outputs section with 'id', along with fields.
+                            do_action( 'wsa_form_bottom_' . $form['id'], $form );   // ????
+                            if ( isset( $this->settings_fields[ $form['id'] ] ) ):  // If this tab has fields, do a submit button.
                                 ?>
                                 <div style="padding-left: 10px">
                                     <?php submit_button(
