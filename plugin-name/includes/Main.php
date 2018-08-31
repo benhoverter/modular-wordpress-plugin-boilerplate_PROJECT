@@ -105,6 +105,10 @@ class Plugin_Name {
         // Localization.
         $this->set_locale();
 
+        // Database
+        //$this->set_db_connection();
+        //$this->get_queries();
+
         // Define the hooks and pass them to the Loader:
         $this->define_hooks();
 
