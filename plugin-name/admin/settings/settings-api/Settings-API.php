@@ -564,11 +564,12 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
                             if ( isset( $this->settings_fields[ $form['id'] ] ) ):
                                 ?>
                                 <div style="padding-left: 10px">
-                                    <?php /*submit_button(
-                                        '',
-                                        '',
-                                        'submit-' . $form['id']
-                                    ); */?>
+                                    <?php submit_button(
+                                        'Save This Tab',
+                                        'primary',
+                                        'submit-' . $form['id'] // Assigns a unique name to this form's button.
+                                                                // Prevents saving of multiple tabs.
+                                    ); ?>
                                 </div>
                             <?php endif; ?>
                         </form>

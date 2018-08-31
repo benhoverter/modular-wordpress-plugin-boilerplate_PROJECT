@@ -14,30 +14,7 @@
     $(document).ready( function() {
         console.log( "Settings view-name.js loaded." );
 
-        /*
-        $( "#submit-all-test" ).click( function() {
-
-            //e.preventDefault();
-
-            const $this = $( this );
-            console.log( $this );
-
-
-            const $parent = $this.parent();
-            console.log( $parent );
-
-            const $siblings = $parent.siblings( ".metabox-holder" );
-            console.log( $siblings );
-
-            const $forms = $siblings.find( "form" );
-            console.log( $forms );
-
-            //.siblings( ".metabox-holder" ).find( "form" );
-
-            $forms.submit();
-            */
-
-        } );
+        // Do the thing.
 
     } ); // END: document.ready
 
