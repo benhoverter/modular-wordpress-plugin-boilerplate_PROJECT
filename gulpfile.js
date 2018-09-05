@@ -26,6 +26,8 @@ const babel =         require( 'gulp-babel' );
 const uglify =        require( 'gulp-uglify' );
 const sourcemaps =    require( 'gulp-sourcemaps' );
 
+const devPath =       'E:/wp-dev/project_dev/wp-content/plugins/plugin-name';
+
 
 // ***** DEFAULT TASK ***** //
 gulp.task( 'default', () => {       // Do it all.
@@ -33,9 +35,24 @@ gulp.task( 'default', () => {       // Do it all.
          'css-public',
          'js-public',
          'css-admin',
-         'js-admin'
+         'js-admin',
+         'plugin-copy'
       );
 } );
+
+
+// ***** CLEAN AND COPY PLUGIN FILES IN /wp-content/plugins ***** //
+gulp.task( 'plugin-clean', () => {                      // Delete the old .css file.
+    return gulp.src( devPath,
+        { read: false } )
+        .pipe( clean( { force: true } ) );
+} );    // Working.
+
+gulp.task( 'plugin-copy', [ 'plugin-clean' ], () => {
+    return gulp.src( './plugin-name/**' )
+        .pipe( gulp.dest( devPath ) );  // Put the new file here.
+} );    // Working.
+
 
 
 
