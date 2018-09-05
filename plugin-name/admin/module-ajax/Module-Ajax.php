@@ -136,7 +136,7 @@ class Plugin_Abbr_Admin_Module_Ajax {
     */
     public function module_ajax_callback() {
 
-        check_ajax_referer( 'plugin_abbr_module_ajax_nonce', 'module_ajax_nonce' ); // Dies if false.
+        check_ajax_referer( 'abbr_module_ajax_data_nonce', 'ajax_nonce' ); // Dies if false.
 
         // Call the handler function.
         echo $this->handler_function();
