@@ -87,10 +87,10 @@ class Plugin_Abbr_Admin_Assets {
         $admin_css_dir_path = plugin_dir_path( __DIR__ ) . 'assets/admin/admin.min.css';
 
         // Register the style using an automatic and unique version based on modification time.
-        wp_register_style( $this->plugin_title, $admin_css_dir_url, array(), filemtime( $admin_css_dir_path ), 'all' );
+        wp_register_style( $this->plugin_title . '-admin-css', $admin_css_dir_url, array(), filemtime( $admin_css_dir_path ), 'all' );
 
         // Enqueue the style.
-        wp_enqueue_style( $this->plugin_title );
+        wp_enqueue_style( $this->plugin_title . '-admin-css' );
         //wp_enqueue_style( 'thickbox' );
 
     }
@@ -119,14 +119,10 @@ class Plugin_Abbr_Admin_Assets {
         $admin_js_dir_path = plugin_dir_path( __DIR__ ) . 'assets/admin/admin.min.js';
 
         // Register the script using an automatic and unique version based on modification time.
-        wp_register_script( $this->plugin_title, $admin_js_dir_url, array( 'jquery' ), filemtime( $admin_js_dir_path ), true );
+        wp_register_script( $this->plugin_title . '-admin-js', $admin_js_dir_url, array( 'jquery' ), filemtime( $admin_js_dir_path ), true );
 
         // Enqueue the scripts.
-        wp_enqueue_script( $this->plugin_title );
-
-        // PHP data for the frontend.  Do one wp_localize_script() call per module.
-        // Localize the script to make PHP data available to AJAX JS.  Define data in Element-Ajax.php.
-        //wp_localize_script( $this->plugin_title, 'abbr_admin_module_data', $this->module_ajax->get_ajax_data() );
+        wp_enqueue_script( $this->plugin_title . '-admin-js' );
 
     }
 

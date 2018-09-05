@@ -101,23 +101,27 @@ class Plugin_Abbr_Public_Module_Ajax {
 
 
     /**
-    * Get all data to be passed to the frontend.
-    * Localized in "../Public.php".
+    * Set data to be passed to the frontend.
     *
-    * @return   array     $this->ajax_data     The associative array of data to pass.
     * @since    1.0.0
     */
-    public function get_ajax_data() {
+    public function set_data_callback() {
 
-        // Needed on the frontend. No touching!
-        $this->ajax_data[ 'ajax_url' ] = admin_url( 'admin-ajax.php' );
+        // Frontend data for data table:
+        wp_localize_script(
 
-        // Gets checked in module_ajax_callback().
-        $this->ajax_data[ 'module_ajax_nonce' ] = wp_create_nonce( 'plugin_abbr_module_ajax_nonce' );
+            $this->plugin_title . '-public-js',
 
-        // Add key => value pairs here.
+            'data_package_name',
 
-        return $this->ajax_data;
+            array(
+                'ajax_url' => admin_url( 'admin-ajax.php' ),
+                'module_ajax_data_nonce' => wp_create_nonce( 'abbr_module_ajax_data_nonce' )
+            )
+
+        );
+
+        // Add'l calls to wp_localize_script() for add'l data sets go here:
 
     }
 

@@ -289,6 +289,9 @@ class Plugin_Name {
         //$this->loader->add_action( 'save_post{_post_type}', $module_ajax, 'save_metabox' );
         $this->loader->add_action( 'admin_init', $module_ajax, 'render_view' );
 
+        // Data to frontend here with wp_localize_script():
+        $this->loader->add_action( 'admin_enqueue_scripts', $module_ajax, 'set_data_callback' );
+
         // AJAX hooks go here:
         //$this->loader->add_action( 'wp_ajax_{action_name}', $module_ajax, 'element_ajax_callback' );
 
@@ -328,6 +331,9 @@ class Plugin_Name {
         //$this->loader->add_action( 'add_meta_boxes{_post_type}', $module_ajax, 'render_metabox' );
         //$this->loader->add_action( 'save_post{_post_type}', $module_ajax, 'save_metabox' );
         $this->loader->add_action( 'wp_head', $module_ajax, 'render_view' );
+
+        // Data to frontend here with wp_localize_script():
+        $this->loader->add_action( 'wp_enqueue_scripts', $module_ajax, 'set_data_callback' );
 
         // AJAX hooks go here:
         $this->loader->add_action( 'wp_ajax_{action_name}', $module_ajax, 'element_ajax_callback' );
