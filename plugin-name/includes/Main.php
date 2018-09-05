@@ -398,10 +398,10 @@ class Plugin_Name {
         $config = Plugin_Abbr_Config::set_config();
 
         $this->conn = new mysqli(
-            $config->host,
-            $config->user,
-            $config->password,
-            $config->db_name
+            $config['host'],
+            $config['user'],
+            $config['password'],
+            $config['db_name']
         );
 
         return $this->conn;

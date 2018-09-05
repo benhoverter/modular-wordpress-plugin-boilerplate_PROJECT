@@ -27,32 +27,57 @@ const uglify =        require( 'gulp-uglify' );
 const sourcemaps =    require( 'gulp-sourcemaps' );
 
 const devPath =       'E:/wp-dev/project_dev/wp-content/plugins/plugin-name';
+const testPath =      'E:/wp-dev/project_test/wp-content/plugins/plugin-name';
 
 
-// ***** DEFAULT TASK ***** //
-gulp.task( 'default', () => {       // Do it all.
+// ***** GROUPED TASK ***** //
+gulp.task( 'dev', () => {       // Do it all.
      runSequence(
          'css-public',
          'js-public',
          'css-admin',
          'js-admin',
-         'plugin-copy'
+         'dev-copy'
+      );
+} );
+
+gulp.task( 'test', () => {       // Do it all.
+     runSequence(
+         'css-public',
+         'js-public',
+         'css-admin',
+         'js-admin',
+         'test-copy'
       );
 } );
 
 
 // ***** CLEAN AND COPY PLUGIN FILES IN /wp-content/plugins ***** //
-gulp.task( 'plugin-clean', () => {                      // Delete the old .css file.
+
+// Dev Site:
+gulp.task( 'dev-clean', () => {         // Delete the old .css file.
     return gulp.src( devPath,
         { read: false } )
         .pipe( clean( { force: true } ) );
 } );    // Working.
 
-gulp.task( 'plugin-copy', [ 'plugin-clean' ], () => {
+gulp.task( 'dev-copy', [ 'dev-clean' ], () => {
     return gulp.src( './plugin-name/**' )
         .pipe( gulp.dest( devPath ) );  // Put the new file here.
 } );    // Working.
 
+
+// Test Site:
+gulp.task( 'test-clean', () => {         // Delete the old .css file.
+    return gulp.src( testPath,
+        { read: false } )
+        .pipe( clean( { force: true } ) );
+} );    // Working.
+
+gulp.task( 'test-copy', [ 'test-clean' ], () => {
+    return gulp.src( './plugin-name/**' )
+        .pipe( gulp.dest( testPath ) );  // Put the new file here.
+} );    // Working.
 
 
 

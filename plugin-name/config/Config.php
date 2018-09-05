@@ -23,55 +23,23 @@
 class Plugin_Abbr_Config {
 
     /**
-    * The database hostname.
-    *
-    * @since    1.0.0
-    * @access   public
-    * @var      string    $host    The database hostname.
-    */
-    public $host;
-
-    /**
-    * The database username.
-    *
-    * @since    1.0.0
-    * @access   public
-    * @var      string    $user    The database username.
-    */
-    public $user;
-
-    /**
-    * The database name.
-    *
-    * @since    1.0.0
-    * @access   public
-    * @var      string    $password    The database name.
-    */
-    public $password;
-
-    /**
-    * The database name.
-    *
-    * @since    1.0.0
-    * @access   public
-    * @var      string    $db_name    The database name.
-    */
-    public $db_name;
-
-
-
-    /**
     * Set the DB config values.
     *
     * @since     1.0.0
     */
     public static function set_config() {
 
-        $this->host = 'hostname';
-        $this->user = 'username';
-        $this->password = 'password';
-        $this->db_name = 'db_name';
+        // Live values:
+        $config = array(
 
+            'host' => 'localhost',
+            'user' => 'root',
+            'password' => 'root',
+            'db_name' => 'project_dev'
+
+        );
+
+        return $config;
     }
 
 }
