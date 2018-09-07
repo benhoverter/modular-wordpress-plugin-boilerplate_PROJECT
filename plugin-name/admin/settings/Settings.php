@@ -216,7 +216,7 @@ class Plugin_Abbr_Settings {
                 //'desc' => '<p class="description">This is a custom description.</p>',
                 'callback' => array(
                     $this,
-                    'custom_callback'
+                    'custom_section_callback'
                 )
             )
 
@@ -224,8 +224,12 @@ class Plugin_Abbr_Settings {
         return $sections;
     }
 
-    public function custom_callback() {
-        echo '<div class="custom"><p>This is the output of a custom callback.</p></div>';
+    public function custom_section_callback() {
+        echo '<div class="custom"><p>This is the output of a custom section callback.</p></div>';
+    }
+
+    public function custom_field_callback() {
+        echo '<div class="custom"><p>This is the output of a custom field callback.</p></div>';
     }
 
 
@@ -239,6 +243,11 @@ class Plugin_Abbr_Settings {
     private function get_settings_fields() {
         $settings_fields = array(
             $this->plugin_slug . '_basic_settings' => array(
+                array(  // Custom callback!
+                    'name'              => 'custom_callback_field',
+                    'label'             => __( 'Custom Callback', 'textdomain' ),
+                    'callback'          => array( $this, 'custom_field_callback' )        // Callback must be public!
+                ),
                 array(
                     'name'              => 'text_val',
                     'label'             => __( 'Text Input', 'textdomain' ),
