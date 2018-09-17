@@ -1,6 +1,6 @@
 /*
  *  Gulp config file
- *  @project plugin_name
+ *  @project plugin_title
  *  Author: Your Name
  */
 

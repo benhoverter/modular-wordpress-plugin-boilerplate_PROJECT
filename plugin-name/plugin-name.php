@@ -44,7 +44,7 @@ define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 * This action is documented in includes/Activator.php
 */
 
-function activate_plugin_name() {
+function activate_plugin_title() {
     require_once plugin_dir_path( __FILE__ ) . 'includes/Activator.php';
     Plugin_Abbr_Activator::activate();
 }
@@ -55,14 +55,14 @@ function activate_plugin_name() {
 * This action is documented in includes/Deactivator.php
 */
 
-function deactivate_plugin_name() {
+function deactivate_plugin_title() {
     require_once plugin_dir_path( __FILE__ ) . 'includes/Deactivator.php';
     Plugin_Abbr_Deactivator::deactivate();
 }
 
 
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
+register_activation_hook( __FILE__, 'activate_plugin_title' );
+register_deactivation_hook( __FILE__, 'deactivate_plugin_title' );
 
 
 /**
@@ -81,11 +81,11 @@ require plugin_dir_path( __FILE__ ) . 'includes/Main.php';
 * @since    1.0.0
 */
 
-function run_plugin_name() {
+function run_plugin_title() {
 
     $plugin = new Plugin_Name();
     $plugin->run();
 
 }
 
-run_plugin_name();
+run_plugin_title();
