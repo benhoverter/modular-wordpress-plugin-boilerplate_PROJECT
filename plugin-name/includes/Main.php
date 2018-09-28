@@ -313,7 +313,6 @@ class Plugin_Name {
         //$this->loader->add_action( 'add_meta_boxes{_post_type}', $module->element, 'render_metabox' );
         //$this->loader->add_action( 'save_post{_post_type}', $module->element, 'save_metabox' );
         $this->loader->add_action( 'wp_head', $module, 'render_view' );
-        $this->loader->add_action( 'wp_head', $module, 'public_test' );
 
     }
 
