@@ -110,8 +110,8 @@ gulp.task( 'js-public', [ 'js-public-clean' ], () => {
         .pipe( sourcemaps.init() )                          // Start sourcemapping.
         .pipe( concat( 'public.min.js' ) )                  // Combine all files into one.
         .pipe( babel( {
-            presets: [ 'env' ]                              // Standard Babel preset.
-        } ) )
+            presets: [ '@babel/env' ]                       // Standard Babel preset.
+         } ) )
         .pipe( uglify() )                                   // Minify the JS.
         .pipe( sourcemaps.write( '.' ) )                    // Place the sourcemap next to public.min.js.
         .pipe( gulp.dest( './plugin-name/assets/public' ) );
@@ -149,7 +149,7 @@ gulp.task( 'js-admin', [ 'js-admin-clean' ], () => {
         .pipe( sourcemaps.init() )                          // Start sourcemapping.
         .pipe( concat( 'admin.min.js' ) )                  // Combine all files into one.
         .pipe( babel( {
-            presets: [ 'env' ]                              // Standard Babel preset.
+            presets: [ '@babel/env' ]                       // Standard Babel preset.
         } ) )
         .pipe( uglify() )                                   // Minify the JS.
         .pipe( sourcemaps.write( '.' ) )                    // Place the sourcemap next to admin.min.js.

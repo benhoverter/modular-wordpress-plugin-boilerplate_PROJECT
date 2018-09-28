@@ -22,12 +22,11 @@
   },
   "homepage": "https://github.com/benhoverter/modular-wordpress-plugin-boilerplate#readme",
   "devDependencies": {
-    "@babel/core": "^7.0.0-rc.2",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
-    "gulp-babel": "^7.0.1",
+    "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^3.0.1",
@@ -39,4 +38,5 @@
   "dependencies": {
     "lodash": "^4.17.10"
   }
+
 }
