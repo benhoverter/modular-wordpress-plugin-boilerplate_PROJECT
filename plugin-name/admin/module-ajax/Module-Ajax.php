@@ -82,25 +82,6 @@ class Plugin_Abbr_Admin_Module_Ajax {
     }
 
 
-    // ***** PRE-CALL METHODS ***** //
-
-
-    /**
-    * Render a view.
-    * Different hooks will require separate render_{} methods.
-    *
-    * @since    1.0.0
-    */
-    public function render_view() {
-
-        /**
-        * The view displaying ________.
-        */
-        include( plugin_dir_path( __FILE__ ) . 'views/view-name.php' ) ;
-
-    }
-
-
     /**
     * Set data to be passed to the frontend.
     *

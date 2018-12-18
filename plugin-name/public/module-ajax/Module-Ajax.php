@@ -85,17 +85,16 @@ class Plugin_Abbr_Public_Module_Ajax {
     // ***** PRE-CALL METHODS ***** //
 
     /**
-    * Render a view.
+    * Render a view before the content.
     * Different hooks will require separate render_{} methods.
     *
     * @since    1.0.0
     */
-    public function render_view() {
+    public function render_view_before_content( $content ) {
 
-        /**
-        * The view displaying ________.
-        */
-        include( plugin_dir_path( __FILE__ ) . 'views/view-name.php' ) ;
+      $view = file_get_contents( plugin_dir_path( __FILE__ ) . 'views/view-name.php' );
+
+      return $view . $content;
 
     }
 

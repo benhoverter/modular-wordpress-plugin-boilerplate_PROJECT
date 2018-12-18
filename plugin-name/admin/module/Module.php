@@ -56,22 +56,6 @@ class Plugin_Abbr_Admin_Module {
 
 
     /**
-    * Render a view.
-    * Different hooks will require separate render_{} methods.
-    *
-    * @since    1.0.0
-    */
-    public function render_view() {
-
-        /**
-        * The view displaying ________.
-        */
-        include( plugin_dir_path( __FILE__ ) . 'views/view-name.php' ) ;
-
-    }
-
-
-    /**
     * Do a thing.
     *
     * @since    1.0.0
