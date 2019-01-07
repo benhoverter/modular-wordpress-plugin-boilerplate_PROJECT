@@ -26,8 +26,8 @@ const babel =         require( 'gulp-babel' );
 const uglify =        require( 'gulp-uglify' );
 const sourcemaps =    require( 'gulp-sourcemaps' );
 
-const devPath =       'E:/wp-dev/project_dev/wp-content/plugins/plugin-name';
-const testPath =      'E:/wp-dev/project_test/wp-content/plugins/plugin-name';
+const devPath =       'C:/Users/benho/WordPress/dev/wp-content/plugins/modular-wordpress-plugin-boilerplate';
+const testPath =      'C:/Users/benho/WordPress/test/wp-content/plugins/modular-wordpress-plugin-boilerplate';
 
 
 // ***** GROUPED TASK ***** //
