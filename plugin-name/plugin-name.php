@@ -13,7 +13,7 @@
 * @package           plugin-name
 *
 * @wordpress-plugin
-* Plugin Name:       A Modular WordPress Plugin Boilerplate
+* Plugin Name:       Plugin Name
 * Plugin URI:        https://github.com/benhoverter/modular-wordpress-plugin-boilerplate
 * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
 * Version:           1.0.0
@@ -58,6 +58,19 @@ function activate_plugin_title() {
 function deactivate_plugin_title() {
     require_once plugin_dir_path( __FILE__ ) . 'includes/Deactivator.php';
     Plugin_Abbr_Deactivator::deactivate();
+}
+
+
+/**
+* The code that handles automatic updates.
+* This action is documented in includes/Updater.php
+*/
+
+function update_plugin_title() {
+    require_once plugin_dir_path( __FILE__ ) . 'includes/Updater.php';
+
+    $token = '';
+    $updater = new Plugin_Abbr_Updater( __FILE__, 'benhoverter', 'modular-wordpress-plugin-boilerplate' ); // TODO: TRY WITH TOKEN.
 }
 
 
