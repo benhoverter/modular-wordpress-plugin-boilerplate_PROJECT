@@ -30,6 +30,7 @@ sass.compiler = require( 'node-sass' );
 
 const liveFiles = [
   './plugin-name/**/*',
+  '!./plugin-name',
 
   // EXAMPLE FOR IN-PLUGIN REACT APP EXCLUSION:
   // '!./plugin-name/public/kyc-validation-app/node_modules/**/*',
@@ -39,11 +40,28 @@ const liveFiles = [
 
 ];
 
+// Split the /plugin-name folder contents into another repo for release:
+const releasePath =   'C:/Users/benho/Repos/modular-wp-plugin-boilerplate_PLUGIN';
+const releasePaths = [
+  'C:/Users/benho/Repos/modular-wp-plugin-boilerplate_PLUGIN/**/*',
+
+  // '!C:/Users/benho/Repos/modular-wp-plugin-boilerplate_PLUGIN',
+
+  '!C:/Users/benho/Repos/modular-wp-plugin-boilerplate_PLUGIN/test',
+
+  '!C:/Users/benho/Repos/modular-wp-plugin-boilerplate_PLUGIN/.git',
+  '!C:/Users/benho/Repos/modular-wp-plugin-boilerplate_PLUGIN/.gitattributes',
+  '!C:/Users/benho/Repos/modular-wp-plugin-boilerplate_PLUGIN/.gitignore',
+  '!C:/Users/benho/Repos/modular-wp-plugin-boilerplate_PLUGIN/README.md',
+]
+
+// Development server files:
 const localPath = 'C:/Users/benho/WordPress/dev/wp-content/plugins/plugin-name';
 
-const zipFiles = 'C:/Users/benho/WordPress/bunker/wp-content/plugins/plugin-name/**/*'
-const zipDest = 'C:/Users/benho/WordPress/bunker/wp-content/plugins'
+const zipFiles = 'C:/Users/benho/WordPress/dev/wp-content/plugins/plugin-name/**/*'
+const zipDest  = 'C:/Users/benho/WordPress/dev/wp-content/plugins'
 
+// Set the files to watch: >>>> FIX: LOOPING!
 const watchFiles = [
   './plugin-name/**/*',
   '!./plugin-name/assets/**/*', // Don't watch the minified files.
@@ -111,16 +129,23 @@ function adminJS() {
 
 
 // CLean the plugin folder:
+// function clean() {
+//   return del([
+//     localPath,
+//     ...releasePaths,
+//   ], {force: true} );
+// };
+
 function clean() {
-  return del([
-    localPath,
-  ], {force: true} );
+  return del(releasePaths, {force: true} );
 };
+
 
 // Copy files.
 function copy() {
   return src( liveFiles )
   .pipe( dest( localPath ) )
+  .pipe( dest( releasePath ) )
 }
 
 // Zip plugin:
@@ -168,133 +193,3 @@ const doAll = series(
 );
 
 // watch( watchFiles, doAll );
-
-
-
-////////////////////// OLD STUFF ///////////////////////
-// ***** GROUPED TASK ***** //
-// gulp.task( 'dev', () => {       // Do it all.
-//      runSequence(
-//          'css-public',
-//          'js-public',
-//          'css-admin',
-//          'js-admin',
-//          'dev-copy'
-//       );
-// } );
-//
-// gulp.task( 'test', () => {       // Do it all.
-//      runSequence(
-//          'css-public',
-//          'js-public',
-//          'css-admin',
-//          'js-admin',
-//          'test-copy'
-//       );
-// } );
-
-
-// ***** CLEAN AND COPY PLUGIN FILES IN /wp-content/plugins ***** //
-
-// Dev Site:
-// gulp.task( 'dev-clean', () => {         // Delete the old .css file.
-//   return gulp.src( devPath,
-//     { read: false } )
-//     .pipe( clean( { force: true } ) );
-//   } );    // Working.
-//
-//   gulp.task( 'dev-copy', [ 'dev-clean' ], () => {
-//     return gulp.src( './plugin-name/**' )
-//     .pipe( gulp.dest( devPath ) );  // Put the new file here.
-//   } );    // Working.
-//
-//
-//   // Test Site:
-//   gulp.task( 'test-clean', () => {         // Delete the old .css file.
-//     return gulp.src( testPath,
-//       { read: false } )
-//       .pipe( clean( { force: true } ) );
-//     } );    // Working.
-//
-//     gulp.task( 'test-copy', [ 'test-clean' ], () => {
-//       return gulp.src( './plugin-name/**' )
-//       .pipe( gulp.dest( testPath ) );  // Put the new file here.
-//     } );    // Working.
-
-
-//
-// // ***** PUBLIC CSS ***** //
-// gulp.task( 'css-public-clean', () => {                      // Delete the old .css file.
-//   return gulp.src( './plugin-name/assets/public/*.css', { read: false } )
-//   .pipe( clean() );
-// } );
-//
-// gulp.task( 'css-public', [ 'css-public-clean' ], () => {
-//   return gulp.src( './plugin-name/public/**/*.scss' )     // Get everything Sassy.
-//   .pipe( sass().on( 'error', sass.logError ) )        // Transpile to CSS.
-//   .pipe( autoprefixer( {                              // Prefix for browser compatibility.
-//     browsers: [ 'last 2 versions' ]
-//   } ) )
-//   .pipe( concat( 'public.min.css' ) )                 // Combine all files into one.
-//   .pipe( csso() )                                     // Minify the CSS.
-//   .pipe( gulp.dest( './plugin-name/assets/public' ) );  // Put the new file here.
-// } );
-//
-//
-// // ***** PUBLIC JAVASCRIPT ***** //
-// gulp.task( 'js-public-clean', () => {                       // Delete the old .js and .map files.
-//   return gulp.src( './plugin-name/assets/public/*.js*', { read: false } )
-//   .pipe( clean() );
-// } );
-//
-// gulp.task( 'js-public', [ 'js-public-clean' ], () => {
-//   return gulp.src( './plugin-name/public/**/*.js' )       // Get everything scripty.
-//   .pipe( sourcemaps.init() )                          // Start sourcemapping.
-//   .pipe( concat( 'public.min.js' ) )                  // Combine all files into one.
-//   .pipe( babel( {
-//     presets: [ '@babel/env' ]                       // Standard Babel preset.
-//   } ) )
-//   .pipe( uglify() )                                   // Minify the JS.
-//   .pipe( sourcemaps.write( '.' ) )                    // Place the sourcemap next to public.min.js.
-//   .pipe( gulp.dest( './plugin-name/assets/public' ) );
-//
-// } );
-//
-//
-//
-// // ***** ADMIN CSS ***** //
-// gulp.task( 'css-admin-clean', () => {                      // Delete the old .css file.
-//   return gulp.src( './plugin-name/assets/admin/*.css', { read: false } )
-//   .pipe( clean() );
-// } );
-//
-// gulp.task( 'css-admin', [ 'css-admin-clean' ], () => {
-//   return gulp.src( './plugin-name/admin/**/*.scss' )     // Get everything Sassy.
-//   .pipe( sass().on( 'error', sass.logError ) )        // Transpile to CSS.
-//   .pipe( autoprefixer( {                              // Prefix for browser compatibility.
-//     browsers: [ 'last 2 versions' ]
-//   } ) )
-//   .pipe( concat( 'admin.min.css' ) )                 // Combine all files into one.
-//   .pipe( csso() )                                     // Minify the CSS.
-//   .pipe( gulp.dest( './plugin-name/assets/admin' ) );  // Put the new file here.
-// } );
-//
-//
-// // ***** ADMIN JAVASCRIPT ***** //
-// gulp.task( 'js-admin-clean', () => {                       // Delete the old .js and .map files.
-//   return gulp.src( './plugin-name/assets/admin/*.js*', { read: false } )
-//   .pipe( clean() );
-// } );
-//
-// gulp.task( 'js-admin', [ 'js-admin-clean' ], () => {
-//   return gulp.src( './plugin-name/admin/**/*.js' )       // Get everything scripty.
-//   .pipe( sourcemaps.init() )                          // Start sourcemapping.
-//   .pipe( concat( 'admin.min.js' ) )                  // Combine all files into one.
-//   .pipe( babel( {
-//     presets: [ '@babel/env' ]                       // Standard Babel preset.
-//   } ) )
-//   .pipe( uglify() )                                   // Minify the JS.
-//   .pipe( sourcemaps.write( '.' ) )                    // Place the sourcemap next to admin.min.js.
-//   .pipe( gulp.dest( './plugin-name/assets/admin' ) );
-//
-// } );
