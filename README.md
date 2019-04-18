@@ -8,7 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 This is a revision of the WordPress Plugin Boilerplate, intended to improve separation of concerns.
 
 This is the full project.  If you're looking for just the plugin code without the gulpfile, package.json, etc., you want:
-https://github.com/benhoverter/modular-wordpress-plugin-boilerplate
+https://github.com/benhoverter/modular-wordpress-plugin-boilerplate_PLUGIN
 
 == Description ==
 
