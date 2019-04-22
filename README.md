@@ -1,4 +1,6 @@
 # Modular WordPress Plugin Boilerplate
+**This project is now mothballed in favor of the new Modular WP Plugin Starter.**
+**Please visit https://github.com/benhoverter/modular-wp-plugin-starter for more info.**
 
 Contributors: benhoverter
 Tags: wordpress, plugins, boilerplate
